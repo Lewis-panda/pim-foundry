@@ -19,6 +19,32 @@ Move an operation from SRAM-CIM to HBM-PIM, add a modeled GPU or NPU, and see ho
 
 Research preview, v0.8: native paths integrate separately built simulators; GPU/NPU costs are analytical and tensor arithmetic runs on the CPU. APIs may evolve before 1.0. [Execution boundaries](docs/limitations.md).
 
+## How it works—and what you can simulate
+
+An SRAM projection produces 96 bytes of INT32 activations. The GPU consumes them, applies ReLU, and explicitly casts them to 48 bytes of FP16 before HBM executes the next projection. Actual tensor values feed subsequent operations; their transfers enter the recorded schedule.
+
+![Four active device combinations with explicit directed transfers: GPU, HBM plus GPU, HBM plus NPU, and SRAM plus HBM plus GPU.](docs/assets/supported-architectures.svg)
+
+The [architecture gallery](docs/architecture-gallery.md) runs **all four placements**, checks an independent numerical reference, verifies/replays each bundle, and records compute, link, DMA, and peak-memory costs. It keeps the complete platform and workload fixed and uses equal illustrative analytical coefficients.
+
+```sh
+# After installing the tensor or ONNX extra:
+python examples/architecture_gallery.py --out runs/architecture-gallery
+```
+
+<details>
+<summary><strong>Follow the execution engine and a real generated schedule</strong></summary>
+
+![Application assets, actual tensor execution, separate resource scheduling, independent checks and reproducible evidence.](docs/assets/system-operation.svg)
+
+![Recorded three-request SRAM/HBM/GPU compute and DMA schedule.](docs/assets/architecture-timeline.png)
+
+[Open the detailed walkthrough](docs/architecture-gallery.md) · [Recorded events and results](validation/architecture-gallery.json) · [Download/open the local interactive explorer](docs/assets/architecture-explorer.html)
+
+The figures show model execution and predicted resource reservations; the portable gallery executes no physical accelerator or native simulator.
+
+</details>
+
 ## Results you can inspect
 
 **A complete pretrained model, checked through every decode step.** The DistilGPT-2 development study executes all six layers, embeddings, attention, MLPs, vocabulary projection, and KV updates against an independent Transformers CPU reference.

@@ -19,6 +19,32 @@
 
 目前為 v0.8 研究預覽版：原生路徑接入另外建置的模擬器；GPU／NPU 成本採分析模型，張量數值在 CPU 上執行。1.0 前介面仍可能調整。[執行範圍與限制](docs/limitations.md)。
 
+## 系統如何運作、可以模擬哪些組合
+
+SRAM 的第一個投影產生 96 bytes 的 INT32 中間值；GPU 讀取後執行 ReLU，明確轉成 48 bytes 的 FP16，再交給 HBM 執行下一個投影。後續運算會讀取真正產生的張量，搬移事件則保存在排程紀錄中。
+
+![四種具有明確資料搬移的配置：GPU、HBM 加 GPU、HBM 加 NPU，以及 SRAM 加 HBM 加 GPU。](docs/assets/supported-architectures.svg)
+
+[架構範例](docs/architecture-gallery.md)已實際執行**四種配置**，核對獨立數值參考、驗證及重播封存包，並記錄 compute、link、DMA 和記憶體峰值。完整平台與工作負載保持相同，使用一致的示意分析係數。
+
+```sh
+# 已安裝 tensor 或 ONNX extra 後：
+python examples/architecture_gallery.py --out runs/architecture-gallery
+```
+
+<details>
+<summary><strong>展開系統執行流程與實際產生的排程圖</strong></summary>
+
+![應用資產、實際張量執行、獨立資源排程、數值檢查及可重跑證據。](docs/assets/system-operation.svg)
+
+![三個請求的 SRAM／HBM／GPU 運算與 DMA 排程。](docs/assets/architecture-timeline.png)
+
+[完整操作說明](docs/architecture-gallery.md) · [事件與結果資料](validation/architecture-gallery.json) · [下載並開啟本地互動檢視頁](docs/assets/architecture-explorer.html)
+
+圖中呈現模型執行與預測資源占用；這組可攜範例沒有執行實體加速器或原生模擬器。
+
+</details>
+
 ## 看得見依據的成果
 
 **完整預訓練模型，逐步核對 decode。** DistilGPT-2 開發實驗執行六層模型、embedding、attention、MLP、詞彙投影與 KV 更新，對照獨立的 Transformers CPU reference。

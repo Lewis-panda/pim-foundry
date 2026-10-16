@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1124" viewBox="0 0 1280 1124" role="img" aria-labelledby="title description">
+<title id="title">Four executable logical architectures supported by PIM Foundry</title><desc id="description">All four runs use the same four-device fabric. Panels show active placements and omit unused devices. Selected declared logical data-transfer links are shown, not chip packages. The direct SRAM to HBM links are omitted for clarity, and not every link carries traffic in each run. A common six-node tensor graph executes on analytical profiles: projection, ReLU, cast to FP16, head, cast to FP32 and softmax. All GPU places all nodes on GPU. HBM PIM plus GPU places the head on HBM. HBM PIM plus NPU places the head on HBM and other nodes on NPU. SRAM CIM plus HBM PIM plus GPU places projection on SRAM, head on HBM, and remaining nodes on GPU. Every device has local compute and finite memory. The host supplies inputs, weights and request state and receives outputs. Separate native simulator adapters support SRAM INT8 to INT32 and HBM FP16 matmul.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#087f83" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="blue-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#3265af" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;fill:#14263d}.title{font-size:34px;font-weight:750;letter-spacing:-.6px}.section{font-size:24px;font-weight:700}.body{font-size:19px}.small{font-size:17px;fill:#50647b}.tiny{font-size:16px;fill:#50647b}.label{font-size:17px;font-weight:700;fill:#087f83}.eyebrow{font-size:14px;font-weight:700;letter-spacing:1.5px;fill:#087f83}.node{font-size:19px;font-weight:700}.white{fill:white}</style></defs>
+<rect width="1280" height="1124" rx="24" fill="#f4f8fb"/>
+
+<text x="40" y="42" class="eyebrow">PIM FOUNDRY / EXECUTABLE ARCHITECTURES</text>
+<text x="40" y="87" class="title">One graph. Four placements. Explicit transfers.</text>
+<text x="40" y="120" class="body">projection → ReLU → cast FP16 → head → cast FP32 → softmax</text>
+<rect x="40" y="152" width="580" height="372" rx="14" fill="white" stroke="#d5e1eb"/>
+<text x="64" y="190" class="section">A  /  GPU baseline</text>
+<text x="64" y="217" class="eyebrow">ANALYTICAL PROFILES · ACTIVE PLACEMENT</text>
+<rect x="64" y="237" width="532" height="53" rx="9" fill="#edf2f8" stroke="#ccd9e7"/>
+<text x="330.0" y="260" class="label" text-anchor="middle">HOST</text>
+<text x="330.0" y="281" class="tiny" text-anchor="middle">Input / weight / state bytes in · output bytes back</text>
+<path d="M 320 290 V 340" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 340 347 V 297" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="194" y="347" width="272" height="124" rx="12" fill="#e9f6f4" stroke="#acd4ce"/>
+<text x="330.0" y="378" class="node" text-anchor="middle">GPU</text>
+<text x="330.0" y="407" class="small" text-anchor="middle">All six graph nodes</text>
+<text x="330.0" y="455" class="tiny" text-anchor="middle">compute + memory</text>
+<text x="64" y="501" class="small">Every operation stays on the same modeled device.</text>
+<rect x="660" y="152" width="580" height="372" rx="14" fill="white" stroke="#d5e1eb"/>
+<text x="684" y="190" class="section">B  /  HBM-PIM + GPU</text>
+<text x="684" y="217" class="eyebrow">ANALYTICAL PROFILES · ACTIVE PLACEMENT</text>
+<rect x="684" y="237" width="532" height="53" rx="9" fill="#edf2f8" stroke="#ccd9e7"/>
+<text x="950.0" y="260" class="label" text-anchor="middle">HOST</text>
+<text x="950.0" y="281" class="tiny" text-anchor="middle">Input / weight / state bytes in · output bytes back</text>
+<path d="M 786 290 V 340" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 806 347 V 297" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 1094 290 V 340" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 1114 347 V 297" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="684" y="347" width="224" height="124" rx="12" fill="#e9f6f4" stroke="#acd4ce"/>
+<text x="796.0" y="378" class="node" text-anchor="middle">GPU</text>
+<text x="796.0" y="407" class="small" text-anchor="middle">projection · ReLU</text>
+<text x="796.0" y="431" class="small" text-anchor="middle">casts · softmax</text>
+<text x="796.0" y="455" class="tiny" text-anchor="middle">compute + memory</text>
+<rect x="992" y="347" width="224" height="124" rx="12" fill="#e9f6f4" stroke="#acd4ce"/>
+<text x="1104.0" y="378" class="node" text-anchor="middle">HBM-PIM</text>
+<text x="1104.0" y="407" class="small" text-anchor="middle">head matmul</text>
+<text x="1104.0" y="455" class="tiny" text-anchor="middle">compute + memory</text>
+<path d="M 908 396 H 985" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 992 416 H 915" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<text x="684" y="501" class="small">GPU produces the head input; HBM returns its result.</text>
+<rect x="40" y="548" width="580" height="372" rx="14" fill="white" stroke="#d5e1eb"/>
+<text x="64" y="586" class="section">C  /  HBM-PIM + NPU</text>
+<text x="64" y="613" class="eyebrow">ANALYTICAL PROFILES · ACTIVE PLACEMENT</text>
+<rect x="64" y="633" width="532" height="53" rx="9" fill="#edf2f8" stroke="#ccd9e7"/>
+<text x="330.0" y="656" class="label" text-anchor="middle">HOST</text>
+<text x="330.0" y="677" class="tiny" text-anchor="middle">Input / weight / state bytes in · output bytes back</text>
+<path d="M 166 686 V 736" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 186 743 V 693" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 474 686 V 736" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 494 743 V 693" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="64" y="743" width="224" height="124" rx="12" fill="#e9f6f4" stroke="#acd4ce"/>
+<text x="176.0" y="774" class="node" text-anchor="middle">NPU</text>
+<text x="176.0" y="803" class="small" text-anchor="middle">projection · ReLU</text>
+<text x="176.0" y="827" class="small" text-anchor="middle">casts · softmax</text>
+<text x="176.0" y="851" class="tiny" text-anchor="middle">compute + memory</text>
+<rect x="372" y="743" width="224" height="124" rx="12" fill="#e9f6f4" stroke="#acd4ce"/>
+<text x="484.0" y="774" class="node" text-anchor="middle">HBM-PIM</text>
+<text x="484.0" y="803" class="small" text-anchor="middle">head matmul</text>
+<text x="484.0" y="851" class="tiny" text-anchor="middle">compute + memory</text>
+<path d="M 288 792 H 365" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 372 812 H 295" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<text x="64" y="897" class="small">Same split, with NPU compute and memory resources.</text>
+<rect x="660" y="548" width="580" height="372" rx="14" fill="white" stroke="#d5e1eb"/>
+<text x="684" y="586" class="section">D  /  SRAM-CIM + HBM-PIM + GPU</text>
+<text x="684" y="613" class="eyebrow">ANALYTICAL PROFILES · ACTIVE PLACEMENT</text>
+<rect x="684" y="633" width="532" height="53" rx="9" fill="#edf2f8" stroke="#ccd9e7"/>
+<text x="950.0" y="656" class="label" text-anchor="middle">HOST</text>
+<text x="950.0" y="677" class="tiny" text-anchor="middle">Input / weight / state bytes in · output bytes back</text>
+<path d="M 749 686 V 736" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 769 743 V 693" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 940 686 V 736" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 960 743 V 693" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 1131 686 V 736" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 1151 743 V 693" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="684" y="743" width="150" height="124" rx="12" fill="#e9f6f4" stroke="#acd4ce"/>
+<text x="759.0" y="774" class="node" text-anchor="middle">SRAM-CIM</text>
+<text x="759.0" y="803" class="small" text-anchor="middle">projection</text>
+<text x="759.0" y="851" class="tiny" text-anchor="middle">compute + memory</text>
+<rect x="875" y="743" width="150" height="124" rx="12" fill="#e9f6f4" stroke="#acd4ce"/>
+<text x="950.0" y="774" class="node" text-anchor="middle">GPU</text>
+<text x="950.0" y="803" class="small" text-anchor="middle">ReLU · casts</text>
+<text x="950.0" y="827" class="small" text-anchor="middle">softmax</text>
+<text x="950.0" y="851" class="tiny" text-anchor="middle">compute + memory</text>
+<rect x="1066" y="743" width="150" height="124" rx="12" fill="#e9f6f4" stroke="#acd4ce"/>
+<text x="1141.0" y="774" class="node" text-anchor="middle">HBM-PIM</text>
+<text x="1141.0" y="803" class="small" text-anchor="middle">head matmul</text>
+<text x="1141.0" y="851" class="tiny" text-anchor="middle">compute + memory</text>
+<path d="M 834 792 H 868" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 875 812 H 841" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 1025 792 H 1059" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 1066 812 H 1032" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<text x="684" y="897" class="small">SRAM → GPU cast → HBM → GPU cast / softmax</text>
+<path d="M 44 943 H 88" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 88 961 H 44" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<text x="108" y="950" class="small">Same four-device fabric; unused devices omitted. Selected links shown; paired arrows are directed links.</text>
+<text x="108" y="978" class="small">Each transfer reserves its link and both endpoint DMA resources. Each device has finite memory.</text>
+<rect x="40" y="994" width="1200" height="92" rx="14" fill="#14263d" stroke="#14263d"/>
+<text x="64" y="1025" class="node" style="fill:white">Native simulator adapters can replace compatible matmuls</text>
+<text x="64" y="1055" class="body" style="fill:#d7e7f5">SRAM: INT8 × INT8 → INT32  ·  HBM: FP16 × FP16 → FP16  ·  GPU / NPU: analytical execution profiles</text>
+<text x="64" y="1077" class="tiny" style="fill:#b7ccdf">External runtimes are required for native paths; the four portable gallery runs use illustrative analytical coefficients.</text>
+<text x="1240" y="1112" class="tiny" text-anchor="end">Logical resource models; no physical packaging or measured hardware performance is implied.</text>
+</svg>

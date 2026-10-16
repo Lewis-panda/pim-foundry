@@ -10,6 +10,15 @@ These are original PIM Foundry figures. No paper figure, author logo, or third-p
 
 The historical observations are author-provided records, not independent attestation. Raw historical run bundles are not redistributed. The charts establish no measured hardware speedup or complete-paper reproduction.
 
+## System and architecture gallery
+
+- [System operation](system-operation.svg): application assets and scenario, actual tensor execution, separate resource prediction, independent checks and replay.
+- [Supported combinations](supported-architectures.svg): active paths on the shared four-device platform; selected links are drawn, unused devices omitted.
+- [Resource timeline PNG](architecture-timeline.png) / [SVG](architecture-timeline.svg): generated from the recorded events in [architecture-gallery.json](../../validation/architecture-gallery.json). Repeated transfer bands on endpoint DMA rows are the same reservation.
+- [Interactive explorer](architecture-explorer.html): self-contained local HTML with embedded recorded data. It switches placements, filters requests, shows link resources and exposes each event's exact values. Download/open locally; GitHub displays HTML source.
+
+Run [the executable example](../../examples/architecture_gallery.py) with an installed tensor extra, then use [render_architecture_gallery.py](../../scripts/render_architecture_gallery.py) with an already available Matplotlib installation. The [walkthrough](../architecture-gallery.md) gives both commands. No model assets or native runtimes are needed. These are synthetic-cost predictions and actual numerical checks, not physical performance data.
+
 ## Regenerate the result figures
 
 The rendering dependency is separate from the framework's runtime requirements. From the repository root, use a dedicated documentation environment:

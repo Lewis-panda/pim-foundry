@@ -1,0 +1,2282 @@
+{
+  "schema": "pim-foundry.architecture-gallery.v1",
+  "passed": true,
+  "workload": {
+    "graph": "fixture/graph.json",
+    "application": "fixture/application.json",
+    "input_shape": [
+      2,
+      3,
+      4
+    ],
+    "output_shape": [
+      2,
+      3,
+      2
+    ],
+    "precision_flow": "INT8 matmul -> INT32 ReLU -> FP16 cast and matmul -> FP32 cast and softmax",
+    "arrivals_ns": [
+      0,
+      0,
+      0
+    ],
+    "max_inflight": 3,
+    "state": "warm",
+    "weight_residency": "empty initially; first transfer populates a cache shared by subsequent requests",
+    "functional_evaluations_per_placement": 1,
+    "scheduled_identical_requests_per_placement": 3,
+    "reference": "Python scalar loops, explicit IEEE rounding and math.exp; no shared tensor operators"
+  },
+  "platform": {
+    "schema_version": 1,
+    "devices": [
+      {
+        "name": "sram",
+        "kind": "sram",
+        "backend": "analytical",
+        "capacity_bytes": 4096,
+        "idle_power_w": 0,
+        "options": {
+          "macs_per_ns": 16,
+          "elements_per_ns": 16,
+          "local_bytes_per_ns": 64,
+          "launch_ns": 10,
+          "mac_energy_pj": 0,
+          "element_energy_pj": 0,
+          "local_energy_pj_per_byte": 0
+        }
+      },
+      {
+        "name": "hbm",
+        "kind": "hbm",
+        "backend": "analytical",
+        "capacity_bytes": 4096,
+        "idle_power_w": 0,
+        "options": {
+          "macs_per_ns": 16,
+          "elements_per_ns": 16,
+          "local_bytes_per_ns": 64,
+          "launch_ns": 10,
+          "mac_energy_pj": 0,
+          "element_energy_pj": 0,
+          "local_energy_pj_per_byte": 0
+        }
+      },
+      {
+        "name": "gpu",
+        "kind": "gpu",
+        "backend": "analytical",
+        "capacity_bytes": 4096,
+        "idle_power_w": 0,
+        "options": {
+          "macs_per_ns": 16,
+          "elements_per_ns": 16,
+          "local_bytes_per_ns": 64,
+          "launch_ns": 10,
+          "mac_energy_pj": 0,
+          "element_energy_pj": 0,
+          "local_energy_pj_per_byte": 0
+        }
+      },
+      {
+        "name": "npu",
+        "kind": "npu",
+        "backend": "analytical",
+        "capacity_bytes": 4096,
+        "idle_power_w": 0,
+        "options": {
+          "macs_per_ns": 16,
+          "elements_per_ns": 16,
+          "local_bytes_per_ns": 64,
+          "launch_ns": 10,
+          "mac_energy_pj": 0,
+          "element_energy_pj": 0,
+          "local_energy_pj_per_byte": 0
+        }
+      }
+    ],
+    "links": [
+      {
+        "source": "host",
+        "destination": "sram",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      },
+      {
+        "source": "host",
+        "destination": "hbm",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      },
+      {
+        "source": "host",
+        "destination": "gpu",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      },
+      {
+        "source": "host",
+        "destination": "npu",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      },
+      {
+        "source": "sram",
+        "destination": "host",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      },
+      {
+        "source": "sram",
+        "destination": "hbm",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      },
+      {
+        "source": "sram",
+        "destination": "gpu",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      },
+      {
+        "source": "sram",
+        "destination": "npu",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      },
+      {
+        "source": "hbm",
+        "destination": "host",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      },
+      {
+        "source": "hbm",
+        "destination": "sram",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      },
+      {
+        "source": "hbm",
+        "destination": "gpu",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      },
+      {
+        "source": "hbm",
+        "destination": "npu",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      },
+      {
+        "source": "gpu",
+        "destination": "host",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      },
+      {
+        "source": "gpu",
+        "destination": "sram",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      },
+      {
+        "source": "gpu",
+        "destination": "hbm",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      },
+      {
+        "source": "gpu",
+        "destination": "npu",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      },
+      {
+        "source": "npu",
+        "destination": "host",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      },
+      {
+        "source": "npu",
+        "destination": "sram",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      },
+      {
+        "source": "npu",
+        "destination": "hbm",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      },
+      {
+        "source": "npu",
+        "destination": "gpu",
+        "bytes_per_ns": 16,
+        "latency_ns": 5,
+        "energy_pj_per_byte": 0
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "gpu",
+      "label": "GPU",
+      "placement": {
+        "integer_projection": "gpu",
+        "activation": "gpu",
+        "to_fp16": "gpu",
+        "half_projection": "gpu",
+        "to_fp32": "gpu",
+        "probabilities": "gpu"
+      },
+      "status": "completed",
+      "numerical": {
+        "status": "passed",
+        "checks": {
+          "probabilities": {
+            "passed": true,
+            "shape_and_dtype_match": true,
+            "max_abs_error": 2.9802322387695312e-08
+          }
+        }
+      },
+      "bundle_verified": {
+        "passed": true,
+        "files_verified": 49,
+        "integrity_is_not_external_attestation": true
+      },
+      "replay": {
+        "passed": true,
+        "checks": {
+          "status": true,
+          "task_sha256": true,
+          "execution_sha256": true,
+          "platform_sha256": true,
+          "cost_contract_sha256": true,
+          "metrics": true,
+          "quality": true,
+          "execution_identity": true
+        }
+      },
+      "bundle": "gpu/bundle",
+      "experiment": "gpu/experiment.json",
+      "task_sha256": "8544f82fa45503c0bd854918339be2aea63270fa51ca172040bf2905d1cfc59c",
+      "platform_sha256": "4177fa2850b06e7caa550058b61d341f99fb675eca0863b3dab0c7d38c182491",
+      "comparison_to_all_gpu": {
+        "same_model_comparable": true,
+        "reasons": [],
+        "metric": "latency",
+        "left_over_right_ratio": 1.0,
+        "quality_preserving_comparison_eligible": false,
+        "quality_limit": "task_quality_not_evaluated_or_not_passed",
+        "hardware_performance_comparison_eligible": false,
+        "meaning": "conditional modeled ratio for the same semantic task, scenario, platform and accounting boundary"
+      },
+      "modeled_latency_ns": 254.5,
+      "serial_reference": {
+        "max_inflight": 1,
+        "modeled_latency_ns": 283.5,
+        "scope": "same placement and arrivals, changed admission limit; modeled counterfactual"
+      },
+      "requests": [
+        {
+          "request": 0,
+          "arrival_ns": 0,
+          "admitted_ns": 0,
+          "finish_ns": 98.5,
+          "latency_ns": 98.5
+        },
+        {
+          "request": 1,
+          "arrival_ns": 0,
+          "admitted_ns": 0,
+          "finish_ns": 176.5,
+          "latency_ns": 176.5
+        },
+        {
+          "request": 2,
+          "arrival_ns": 0,
+          "admitted_ns": 0,
+          "finish_ns": 254.5,
+          "latency_ns": 254.5
+        }
+      ],
+      "peak_device_bytes": {
+        "sram": 0,
+        "hbm": 0,
+        "gpu": 272,
+        "npu": 0
+      },
+      "transfer_bytes": 248,
+      "transfer_breakdown": {
+        "total_link_bytes": 248,
+        "initializer_link_bytes": 32,
+        "request_input_link_bytes": 72,
+        "request_output_link_bytes": 144,
+        "host_link_bytes": 248,
+        "device_link_bytes": 0,
+        "by_route": {
+          "host->gpu": 104,
+          "gpu->host": 144
+        }
+      },
+      "events": [
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "input",
+          "source": "host",
+          "destination": "gpu",
+          "bytes": 24,
+          "start_ns": 0,
+          "end_ns": 6.5,
+          "resources": [
+            "link:host:gpu",
+            "dma:host",
+            "dma:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "w1",
+          "source": "host",
+          "destination": "gpu",
+          "bytes": 16,
+          "start_ns": 6.5,
+          "end_ns": 12.5,
+          "resources": [
+            "link:host:gpu",
+            "dma:host",
+            "dma:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "integer_projection",
+          "device": "gpu",
+          "start_ns": 12.5,
+          "end_ns": 28.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "w2",
+          "source": "host",
+          "destination": "gpu",
+          "bytes": 16,
+          "start_ns": 12.5,
+          "end_ns": 18.5,
+          "resources": [
+            "link:host:gpu",
+            "dma:host",
+            "dma:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 1,
+          "tensor": "input",
+          "source": "host",
+          "destination": "gpu",
+          "bytes": 24,
+          "start_ns": 18.5,
+          "end_ns": 25.0,
+          "resources": [
+            "link:host:gpu",
+            "dma:host",
+            "dma:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 2,
+          "tensor": "input",
+          "source": "host",
+          "destination": "gpu",
+          "bytes": 24,
+          "start_ns": 25.0,
+          "end_ns": 31.5,
+          "resources": [
+            "link:host:gpu",
+            "dma:host",
+            "dma:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "activation",
+          "device": "gpu",
+          "start_ns": 28.5,
+          "end_ns": 41.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "to_fp16",
+          "device": "gpu",
+          "start_ns": 41.5,
+          "end_ns": 54.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "half_projection",
+          "device": "gpu",
+          "start_ns": 54.5,
+          "end_ns": 67.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "to_fp32",
+          "device": "gpu",
+          "start_ns": 67.5,
+          "end_ns": 79.0,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "probabilities",
+          "device": "gpu",
+          "start_ns": 79.0,
+          "end_ns": 90.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "integer_projection",
+          "device": "gpu",
+          "start_ns": 90.5,
+          "end_ns": 106.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "probabilities",
+          "source": "gpu",
+          "destination": "host",
+          "bytes": 48,
+          "start_ns": 90.5,
+          "end_ns": 98.5,
+          "resources": [
+            "link:gpu:host",
+            "dma:gpu",
+            "dma:host"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "activation",
+          "device": "gpu",
+          "start_ns": 106.5,
+          "end_ns": 119.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "to_fp16",
+          "device": "gpu",
+          "start_ns": 119.5,
+          "end_ns": 132.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "half_projection",
+          "device": "gpu",
+          "start_ns": 132.5,
+          "end_ns": 145.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "to_fp32",
+          "device": "gpu",
+          "start_ns": 145.5,
+          "end_ns": 157.0,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "probabilities",
+          "device": "gpu",
+          "start_ns": 157.0,
+          "end_ns": 168.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "integer_projection",
+          "device": "gpu",
+          "start_ns": 168.5,
+          "end_ns": 184.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 1,
+          "tensor": "probabilities",
+          "source": "gpu",
+          "destination": "host",
+          "bytes": 48,
+          "start_ns": 168.5,
+          "end_ns": 176.5,
+          "resources": [
+            "link:gpu:host",
+            "dma:gpu",
+            "dma:host"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "activation",
+          "device": "gpu",
+          "start_ns": 184.5,
+          "end_ns": 197.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "to_fp16",
+          "device": "gpu",
+          "start_ns": 197.5,
+          "end_ns": 210.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "half_projection",
+          "device": "gpu",
+          "start_ns": 210.5,
+          "end_ns": 223.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "to_fp32",
+          "device": "gpu",
+          "start_ns": 223.5,
+          "end_ns": 235.0,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "probabilities",
+          "device": "gpu",
+          "start_ns": 235.0,
+          "end_ns": 246.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 2,
+          "tensor": "probabilities",
+          "source": "gpu",
+          "destination": "host",
+          "bytes": 48,
+          "start_ns": 246.5,
+          "end_ns": 254.5,
+          "resources": [
+            "link:gpu:host",
+            "dma:gpu",
+            "dma:host"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hbm_gpu",
+      "label": "HBM-PIM + GPU",
+      "placement": {
+        "integer_projection": "gpu",
+        "activation": "gpu",
+        "to_fp16": "gpu",
+        "half_projection": "hbm",
+        "to_fp32": "gpu",
+        "probabilities": "gpu"
+      },
+      "status": "completed",
+      "numerical": {
+        "status": "passed",
+        "checks": {
+          "probabilities": {
+            "passed": true,
+            "shape_and_dtype_match": true,
+            "max_abs_error": 2.9802322387695312e-08
+          }
+        }
+      },
+      "bundle_verified": {
+        "passed": true,
+        "files_verified": 49,
+        "integrity_is_not_external_attestation": true
+      },
+      "replay": {
+        "passed": true,
+        "checks": {
+          "status": true,
+          "task_sha256": true,
+          "execution_sha256": true,
+          "platform_sha256": true,
+          "cost_contract_sha256": true,
+          "metrics": true,
+          "quality": true,
+          "execution_identity": true
+        }
+      },
+      "bundle": "hbm_gpu/bundle",
+      "experiment": "hbm_gpu/experiment.json",
+      "task_sha256": "8544f82fa45503c0bd854918339be2aea63270fa51ca172040bf2905d1cfc59c",
+      "platform_sha256": "4177fa2850b06e7caa550058b61d341f99fb675eca0863b3dab0c7d38c182491",
+      "comparison_to_all_gpu": {
+        "same_model_comparable": true,
+        "reasons": [],
+        "metric": "latency",
+        "left_over_right_ratio": 1.0451866404715127,
+        "quality_preserving_comparison_eligible": false,
+        "quality_limit": "task_quality_not_evaluated_or_not_passed",
+        "hardware_performance_comparison_eligible": false,
+        "meaning": "conditional modeled ratio for the same semantic task, scenario, platform and accounting boundary"
+      },
+      "modeled_latency_ns": 266.0,
+      "serial_reference": {
+        "max_inflight": 1,
+        "modeled_latency_ns": 327.0,
+        "scope": "same placement and arrivals, changed admission limit; modeled counterfactual"
+      },
+      "requests": [
+        {
+          "request": 0,
+          "arrival_ns": 0,
+          "admitted_ns": 0,
+          "finish_ns": 113.0,
+          "latency_ns": 113.0
+        },
+        {
+          "request": 1,
+          "arrival_ns": 0,
+          "admitted_ns": 0,
+          "finish_ns": 189.5,
+          "latency_ns": 189.5
+        },
+        {
+          "request": 2,
+          "arrival_ns": 0,
+          "admitted_ns": 0,
+          "finish_ns": 266.0,
+          "latency_ns": 266.0
+        }
+      ],
+      "peak_device_bytes": {
+        "sram": 0,
+        "hbm": 88,
+        "gpu": 280,
+        "npu": 0
+      },
+      "transfer_bytes": 464,
+      "transfer_breakdown": {
+        "total_link_bytes": 464,
+        "initializer_link_bytes": 32,
+        "request_input_link_bytes": 72,
+        "request_output_link_bytes": 144,
+        "host_link_bytes": 248,
+        "device_link_bytes": 216,
+        "by_route": {
+          "host->gpu": 88,
+          "host->hbm": 16,
+          "gpu->hbm": 144,
+          "hbm->gpu": 72,
+          "gpu->host": 144
+        }
+      },
+      "events": [
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "input",
+          "source": "host",
+          "destination": "gpu",
+          "bytes": 24,
+          "start_ns": 0,
+          "end_ns": 6.5,
+          "resources": [
+            "link:host:gpu",
+            "dma:host",
+            "dma:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "w1",
+          "source": "host",
+          "destination": "gpu",
+          "bytes": 16,
+          "start_ns": 6.5,
+          "end_ns": 12.5,
+          "resources": [
+            "link:host:gpu",
+            "dma:host",
+            "dma:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "integer_projection",
+          "device": "gpu",
+          "start_ns": 12.5,
+          "end_ns": 28.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "w2",
+          "source": "host",
+          "destination": "hbm",
+          "bytes": 16,
+          "start_ns": 12.5,
+          "end_ns": 18.5,
+          "resources": [
+            "link:host:hbm",
+            "dma:host",
+            "dma:hbm"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 1,
+          "tensor": "input",
+          "source": "host",
+          "destination": "gpu",
+          "bytes": 24,
+          "start_ns": 18.5,
+          "end_ns": 25.0,
+          "resources": [
+            "link:host:gpu",
+            "dma:host",
+            "dma:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 2,
+          "tensor": "input",
+          "source": "host",
+          "destination": "gpu",
+          "bytes": 24,
+          "start_ns": 25.0,
+          "end_ns": 31.5,
+          "resources": [
+            "link:host:gpu",
+            "dma:host",
+            "dma:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "activation",
+          "device": "gpu",
+          "start_ns": 28.5,
+          "end_ns": 41.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "to_fp16",
+          "device": "gpu",
+          "start_ns": 41.5,
+          "end_ns": 54.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "integer_projection",
+          "device": "gpu",
+          "start_ns": 54.5,
+          "end_ns": 70.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "hidden_f16",
+          "source": "gpu",
+          "destination": "hbm",
+          "bytes": 48,
+          "start_ns": 54.5,
+          "end_ns": 62.5,
+          "resources": [
+            "link:gpu:hbm",
+            "dma:gpu",
+            "dma:hbm"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "half_projection",
+          "device": "hbm",
+          "start_ns": 62.5,
+          "end_ns": 75.5,
+          "resources": [
+            "compute:hbm"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "logits_f16",
+          "source": "hbm",
+          "destination": "gpu",
+          "bytes": 24,
+          "start_ns": 75.5,
+          "end_ns": 82.0,
+          "resources": [
+            "link:hbm:gpu",
+            "dma:hbm",
+            "dma:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "to_fp32",
+          "device": "gpu",
+          "start_ns": 82.0,
+          "end_ns": 93.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "probabilities",
+          "device": "gpu",
+          "start_ns": 93.5,
+          "end_ns": 105.0,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "activation",
+          "device": "gpu",
+          "start_ns": 105.0,
+          "end_ns": 118.0,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "probabilities",
+          "source": "gpu",
+          "destination": "host",
+          "bytes": 48,
+          "start_ns": 105.0,
+          "end_ns": 113.0,
+          "resources": [
+            "link:gpu:host",
+            "dma:gpu",
+            "dma:host"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "to_fp16",
+          "device": "gpu",
+          "start_ns": 118.0,
+          "end_ns": 131.0,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "integer_projection",
+          "device": "gpu",
+          "start_ns": 131.0,
+          "end_ns": 147.0,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 1,
+          "tensor": "hidden_f16",
+          "source": "gpu",
+          "destination": "hbm",
+          "bytes": 48,
+          "start_ns": 131.0,
+          "end_ns": 139.0,
+          "resources": [
+            "link:gpu:hbm",
+            "dma:gpu",
+            "dma:hbm"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "half_projection",
+          "device": "hbm",
+          "start_ns": 139.0,
+          "end_ns": 152.0,
+          "resources": [
+            "compute:hbm"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 1,
+          "tensor": "logits_f16",
+          "source": "hbm",
+          "destination": "gpu",
+          "bytes": 24,
+          "start_ns": 152.0,
+          "end_ns": 158.5,
+          "resources": [
+            "link:hbm:gpu",
+            "dma:hbm",
+            "dma:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "to_fp32",
+          "device": "gpu",
+          "start_ns": 158.5,
+          "end_ns": 170.0,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "probabilities",
+          "device": "gpu",
+          "start_ns": 170.0,
+          "end_ns": 181.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "activation",
+          "device": "gpu",
+          "start_ns": 181.5,
+          "end_ns": 194.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 1,
+          "tensor": "probabilities",
+          "source": "gpu",
+          "destination": "host",
+          "bytes": 48,
+          "start_ns": 181.5,
+          "end_ns": 189.5,
+          "resources": [
+            "link:gpu:host",
+            "dma:gpu",
+            "dma:host"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "to_fp16",
+          "device": "gpu",
+          "start_ns": 194.5,
+          "end_ns": 207.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 2,
+          "tensor": "hidden_f16",
+          "source": "gpu",
+          "destination": "hbm",
+          "bytes": 48,
+          "start_ns": 207.5,
+          "end_ns": 215.5,
+          "resources": [
+            "link:gpu:hbm",
+            "dma:gpu",
+            "dma:hbm"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "half_projection",
+          "device": "hbm",
+          "start_ns": 215.5,
+          "end_ns": 228.5,
+          "resources": [
+            "compute:hbm"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 2,
+          "tensor": "logits_f16",
+          "source": "hbm",
+          "destination": "gpu",
+          "bytes": 24,
+          "start_ns": 228.5,
+          "end_ns": 235.0,
+          "resources": [
+            "link:hbm:gpu",
+            "dma:hbm",
+            "dma:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "to_fp32",
+          "device": "gpu",
+          "start_ns": 235.0,
+          "end_ns": 246.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "probabilities",
+          "device": "gpu",
+          "start_ns": 246.5,
+          "end_ns": 258.0,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 2,
+          "tensor": "probabilities",
+          "source": "gpu",
+          "destination": "host",
+          "bytes": 48,
+          "start_ns": 258.0,
+          "end_ns": 266.0,
+          "resources": [
+            "link:gpu:host",
+            "dma:gpu",
+            "dma:host"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hbm_npu",
+      "label": "HBM-PIM + NPU",
+      "placement": {
+        "integer_projection": "npu",
+        "activation": "npu",
+        "to_fp16": "npu",
+        "half_projection": "hbm",
+        "to_fp32": "npu",
+        "probabilities": "npu"
+      },
+      "status": "completed",
+      "numerical": {
+        "status": "passed",
+        "checks": {
+          "probabilities": {
+            "passed": true,
+            "shape_and_dtype_match": true,
+            "max_abs_error": 2.9802322387695312e-08
+          }
+        }
+      },
+      "bundle_verified": {
+        "passed": true,
+        "files_verified": 49,
+        "integrity_is_not_external_attestation": true
+      },
+      "replay": {
+        "passed": true,
+        "checks": {
+          "status": true,
+          "task_sha256": true,
+          "execution_sha256": true,
+          "platform_sha256": true,
+          "cost_contract_sha256": true,
+          "metrics": true,
+          "quality": true,
+          "execution_identity": true
+        }
+      },
+      "bundle": "hbm_npu/bundle",
+      "experiment": "hbm_npu/experiment.json",
+      "task_sha256": "8544f82fa45503c0bd854918339be2aea63270fa51ca172040bf2905d1cfc59c",
+      "platform_sha256": "4177fa2850b06e7caa550058b61d341f99fb675eca0863b3dab0c7d38c182491",
+      "comparison_to_all_gpu": {
+        "same_model_comparable": true,
+        "reasons": [],
+        "metric": "latency",
+        "left_over_right_ratio": 1.0451866404715127,
+        "quality_preserving_comparison_eligible": false,
+        "quality_limit": "task_quality_not_evaluated_or_not_passed",
+        "hardware_performance_comparison_eligible": false,
+        "meaning": "conditional modeled ratio for the same semantic task, scenario, platform and accounting boundary"
+      },
+      "modeled_latency_ns": 266.0,
+      "serial_reference": {
+        "max_inflight": 1,
+        "modeled_latency_ns": 327.0,
+        "scope": "same placement and arrivals, changed admission limit; modeled counterfactual"
+      },
+      "requests": [
+        {
+          "request": 0,
+          "arrival_ns": 0,
+          "admitted_ns": 0,
+          "finish_ns": 113.0,
+          "latency_ns": 113.0
+        },
+        {
+          "request": 1,
+          "arrival_ns": 0,
+          "admitted_ns": 0,
+          "finish_ns": 189.5,
+          "latency_ns": 189.5
+        },
+        {
+          "request": 2,
+          "arrival_ns": 0,
+          "admitted_ns": 0,
+          "finish_ns": 266.0,
+          "latency_ns": 266.0
+        }
+      ],
+      "peak_device_bytes": {
+        "sram": 0,
+        "hbm": 88,
+        "gpu": 0,
+        "npu": 280
+      },
+      "transfer_bytes": 464,
+      "transfer_breakdown": {
+        "total_link_bytes": 464,
+        "initializer_link_bytes": 32,
+        "request_input_link_bytes": 72,
+        "request_output_link_bytes": 144,
+        "host_link_bytes": 248,
+        "device_link_bytes": 216,
+        "by_route": {
+          "host->npu": 88,
+          "host->hbm": 16,
+          "npu->hbm": 144,
+          "hbm->npu": 72,
+          "npu->host": 144
+        }
+      },
+      "events": [
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "input",
+          "source": "host",
+          "destination": "npu",
+          "bytes": 24,
+          "start_ns": 0,
+          "end_ns": 6.5,
+          "resources": [
+            "link:host:npu",
+            "dma:host",
+            "dma:npu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "w1",
+          "source": "host",
+          "destination": "npu",
+          "bytes": 16,
+          "start_ns": 6.5,
+          "end_ns": 12.5,
+          "resources": [
+            "link:host:npu",
+            "dma:host",
+            "dma:npu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "integer_projection",
+          "device": "npu",
+          "start_ns": 12.5,
+          "end_ns": 28.5,
+          "resources": [
+            "compute:npu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "w2",
+          "source": "host",
+          "destination": "hbm",
+          "bytes": 16,
+          "start_ns": 12.5,
+          "end_ns": 18.5,
+          "resources": [
+            "link:host:hbm",
+            "dma:host",
+            "dma:hbm"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 1,
+          "tensor": "input",
+          "source": "host",
+          "destination": "npu",
+          "bytes": 24,
+          "start_ns": 18.5,
+          "end_ns": 25.0,
+          "resources": [
+            "link:host:npu",
+            "dma:host",
+            "dma:npu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 2,
+          "tensor": "input",
+          "source": "host",
+          "destination": "npu",
+          "bytes": 24,
+          "start_ns": 25.0,
+          "end_ns": 31.5,
+          "resources": [
+            "link:host:npu",
+            "dma:host",
+            "dma:npu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "activation",
+          "device": "npu",
+          "start_ns": 28.5,
+          "end_ns": 41.5,
+          "resources": [
+            "compute:npu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "to_fp16",
+          "device": "npu",
+          "start_ns": 41.5,
+          "end_ns": 54.5,
+          "resources": [
+            "compute:npu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "integer_projection",
+          "device": "npu",
+          "start_ns": 54.5,
+          "end_ns": 70.5,
+          "resources": [
+            "compute:npu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "hidden_f16",
+          "source": "npu",
+          "destination": "hbm",
+          "bytes": 48,
+          "start_ns": 54.5,
+          "end_ns": 62.5,
+          "resources": [
+            "link:npu:hbm",
+            "dma:npu",
+            "dma:hbm"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "half_projection",
+          "device": "hbm",
+          "start_ns": 62.5,
+          "end_ns": 75.5,
+          "resources": [
+            "compute:hbm"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "logits_f16",
+          "source": "hbm",
+          "destination": "npu",
+          "bytes": 24,
+          "start_ns": 75.5,
+          "end_ns": 82.0,
+          "resources": [
+            "link:hbm:npu",
+            "dma:hbm",
+            "dma:npu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "to_fp32",
+          "device": "npu",
+          "start_ns": 82.0,
+          "end_ns": 93.5,
+          "resources": [
+            "compute:npu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "probabilities",
+          "device": "npu",
+          "start_ns": 93.5,
+          "end_ns": 105.0,
+          "resources": [
+            "compute:npu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "activation",
+          "device": "npu",
+          "start_ns": 105.0,
+          "end_ns": 118.0,
+          "resources": [
+            "compute:npu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "probabilities",
+          "source": "npu",
+          "destination": "host",
+          "bytes": 48,
+          "start_ns": 105.0,
+          "end_ns": 113.0,
+          "resources": [
+            "link:npu:host",
+            "dma:npu",
+            "dma:host"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "to_fp16",
+          "device": "npu",
+          "start_ns": 118.0,
+          "end_ns": 131.0,
+          "resources": [
+            "compute:npu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "integer_projection",
+          "device": "npu",
+          "start_ns": 131.0,
+          "end_ns": 147.0,
+          "resources": [
+            "compute:npu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 1,
+          "tensor": "hidden_f16",
+          "source": "npu",
+          "destination": "hbm",
+          "bytes": 48,
+          "start_ns": 131.0,
+          "end_ns": 139.0,
+          "resources": [
+            "link:npu:hbm",
+            "dma:npu",
+            "dma:hbm"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "half_projection",
+          "device": "hbm",
+          "start_ns": 139.0,
+          "end_ns": 152.0,
+          "resources": [
+            "compute:hbm"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 1,
+          "tensor": "logits_f16",
+          "source": "hbm",
+          "destination": "npu",
+          "bytes": 24,
+          "start_ns": 152.0,
+          "end_ns": 158.5,
+          "resources": [
+            "link:hbm:npu",
+            "dma:hbm",
+            "dma:npu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "to_fp32",
+          "device": "npu",
+          "start_ns": 158.5,
+          "end_ns": 170.0,
+          "resources": [
+            "compute:npu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "probabilities",
+          "device": "npu",
+          "start_ns": 170.0,
+          "end_ns": 181.5,
+          "resources": [
+            "compute:npu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "activation",
+          "device": "npu",
+          "start_ns": 181.5,
+          "end_ns": 194.5,
+          "resources": [
+            "compute:npu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 1,
+          "tensor": "probabilities",
+          "source": "npu",
+          "destination": "host",
+          "bytes": 48,
+          "start_ns": 181.5,
+          "end_ns": 189.5,
+          "resources": [
+            "link:npu:host",
+            "dma:npu",
+            "dma:host"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "to_fp16",
+          "device": "npu",
+          "start_ns": 194.5,
+          "end_ns": 207.5,
+          "resources": [
+            "compute:npu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 2,
+          "tensor": "hidden_f16",
+          "source": "npu",
+          "destination": "hbm",
+          "bytes": 48,
+          "start_ns": 207.5,
+          "end_ns": 215.5,
+          "resources": [
+            "link:npu:hbm",
+            "dma:npu",
+            "dma:hbm"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "half_projection",
+          "device": "hbm",
+          "start_ns": 215.5,
+          "end_ns": 228.5,
+          "resources": [
+            "compute:hbm"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 2,
+          "tensor": "logits_f16",
+          "source": "hbm",
+          "destination": "npu",
+          "bytes": 24,
+          "start_ns": 228.5,
+          "end_ns": 235.0,
+          "resources": [
+            "link:hbm:npu",
+            "dma:hbm",
+            "dma:npu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "to_fp32",
+          "device": "npu",
+          "start_ns": 235.0,
+          "end_ns": 246.5,
+          "resources": [
+            "compute:npu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "probabilities",
+          "device": "npu",
+          "start_ns": 246.5,
+          "end_ns": 258.0,
+          "resources": [
+            "compute:npu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 2,
+          "tensor": "probabilities",
+          "source": "npu",
+          "destination": "host",
+          "bytes": 48,
+          "start_ns": 258.0,
+          "end_ns": 266.0,
+          "resources": [
+            "link:npu:host",
+            "dma:npu",
+            "dma:host"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sram_hbm_gpu",
+      "label": "SRAM-CIM + HBM-PIM + GPU",
+      "placement": {
+        "integer_projection": "sram",
+        "activation": "gpu",
+        "to_fp16": "gpu",
+        "half_projection": "hbm",
+        "to_fp32": "gpu",
+        "probabilities": "gpu"
+      },
+      "status": "completed",
+      "numerical": {
+        "status": "passed",
+        "checks": {
+          "probabilities": {
+            "passed": true,
+            "shape_and_dtype_match": true,
+            "max_abs_error": 2.9802322387695312e-08
+          }
+        }
+      },
+      "bundle_verified": {
+        "passed": true,
+        "files_verified": 49,
+        "integrity_is_not_external_attestation": true
+      },
+      "replay": {
+        "passed": true,
+        "checks": {
+          "status": true,
+          "task_sha256": true,
+          "execution_sha256": true,
+          "platform_sha256": true,
+          "cost_contract_sha256": true,
+          "metrics": true,
+          "quality": true,
+          "execution_identity": true
+        }
+      },
+      "bundle": "sram_hbm_gpu/bundle",
+      "experiment": "sram_hbm_gpu/experiment.json",
+      "task_sha256": "8544f82fa45503c0bd854918339be2aea63270fa51ca172040bf2905d1cfc59c",
+      "platform_sha256": "4177fa2850b06e7caa550058b61d341f99fb675eca0863b3dab0c7d38c182491",
+      "comparison_to_all_gpu": {
+        "same_model_comparable": true,
+        "reasons": [],
+        "metric": "latency",
+        "left_over_right_ratio": 0.8840864440078585,
+        "quality_preserving_comparison_eligible": false,
+        "quality_limit": "task_quality_not_evaluated_or_not_passed",
+        "hardware_performance_comparison_eligible": false,
+        "meaning": "conditional modeled ratio for the same semantic task, scenario, platform and accounting boundary"
+      },
+      "modeled_latency_ns": 225.0,
+      "serial_reference": {
+        "max_inflight": 1,
+        "modeled_latency_ns": 360.0,
+        "scope": "same placement and arrivals, changed admission limit; modeled counterfactual"
+      },
+      "requests": [
+        {
+          "request": 0,
+          "arrival_ns": 0,
+          "admitted_ns": 0,
+          "finish_ns": 124.0,
+          "latency_ns": 124.0
+        },
+        {
+          "request": 1,
+          "arrival_ns": 0,
+          "admitted_ns": 0,
+          "finish_ns": 161.5,
+          "latency_ns": 161.5
+        },
+        {
+          "request": 2,
+          "arrival_ns": 0,
+          "admitted_ns": 0,
+          "finish_ns": 225.0,
+          "latency_ns": 225.0
+        }
+      ],
+      "peak_device_bytes": {
+        "sram": 232,
+        "hbm": 112,
+        "gpu": 288,
+        "npu": 0
+      },
+      "transfer_bytes": 752,
+      "transfer_breakdown": {
+        "total_link_bytes": 752,
+        "initializer_link_bytes": 32,
+        "request_input_link_bytes": 72,
+        "request_output_link_bytes": 144,
+        "host_link_bytes": 248,
+        "device_link_bytes": 504,
+        "by_route": {
+          "host->sram": 88,
+          "host->hbm": 16,
+          "sram->gpu": 288,
+          "gpu->hbm": 144,
+          "hbm->gpu": 72,
+          "gpu->host": 144
+        }
+      },
+      "events": [
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "input",
+          "source": "host",
+          "destination": "sram",
+          "bytes": 24,
+          "start_ns": 0,
+          "end_ns": 6.5,
+          "resources": [
+            "link:host:sram",
+            "dma:host",
+            "dma:sram"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "w1",
+          "source": "host",
+          "destination": "sram",
+          "bytes": 16,
+          "start_ns": 6.5,
+          "end_ns": 12.5,
+          "resources": [
+            "link:host:sram",
+            "dma:host",
+            "dma:sram"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "integer_projection",
+          "device": "sram",
+          "start_ns": 12.5,
+          "end_ns": 28.5,
+          "resources": [
+            "compute:sram"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "w2",
+          "source": "host",
+          "destination": "hbm",
+          "bytes": 16,
+          "start_ns": 12.5,
+          "end_ns": 18.5,
+          "resources": [
+            "link:host:hbm",
+            "dma:host",
+            "dma:hbm"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 1,
+          "tensor": "input",
+          "source": "host",
+          "destination": "sram",
+          "bytes": 24,
+          "start_ns": 18.5,
+          "end_ns": 25.0,
+          "resources": [
+            "link:host:sram",
+            "dma:host",
+            "dma:sram"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "integer_projection",
+          "device": "sram",
+          "start_ns": 28.5,
+          "end_ns": 44.5,
+          "resources": [
+            "compute:sram"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "hidden_i32",
+          "source": "sram",
+          "destination": "gpu",
+          "bytes": 96,
+          "start_ns": 28.5,
+          "end_ns": 39.5,
+          "resources": [
+            "link:sram:gpu",
+            "dma:sram",
+            "dma:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "activation",
+          "device": "gpu",
+          "start_ns": 39.5,
+          "end_ns": 52.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 1,
+          "tensor": "hidden_i32",
+          "source": "sram",
+          "destination": "gpu",
+          "bytes": 96,
+          "start_ns": 44.5,
+          "end_ns": 55.5,
+          "resources": [
+            "link:sram:gpu",
+            "dma:sram",
+            "dma:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "to_fp16",
+          "device": "gpu",
+          "start_ns": 52.5,
+          "end_ns": 65.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 2,
+          "tensor": "input",
+          "source": "host",
+          "destination": "sram",
+          "bytes": 24,
+          "start_ns": 55.5,
+          "end_ns": 62.0,
+          "resources": [
+            "link:host:sram",
+            "dma:host",
+            "dma:sram"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "integer_projection",
+          "device": "sram",
+          "start_ns": 62.0,
+          "end_ns": 78.0,
+          "resources": [
+            "compute:sram"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "activation",
+          "device": "gpu",
+          "start_ns": 65.5,
+          "end_ns": 78.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "hidden_f16",
+          "source": "gpu",
+          "destination": "hbm",
+          "bytes": 48,
+          "start_ns": 65.5,
+          "end_ns": 73.5,
+          "resources": [
+            "link:gpu:hbm",
+            "dma:gpu",
+            "dma:hbm"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "half_projection",
+          "device": "hbm",
+          "start_ns": 73.5,
+          "end_ns": 86.5,
+          "resources": [
+            "compute:hbm"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "to_fp16",
+          "device": "gpu",
+          "start_ns": 78.5,
+          "end_ns": 91.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "logits_f16",
+          "source": "hbm",
+          "destination": "gpu",
+          "bytes": 24,
+          "start_ns": 86.5,
+          "end_ns": 93.0,
+          "resources": [
+            "link:hbm:gpu",
+            "dma:hbm",
+            "dma:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "to_fp32",
+          "device": "gpu",
+          "start_ns": 93.0,
+          "end_ns": 104.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 1,
+          "tensor": "hidden_f16",
+          "source": "gpu",
+          "destination": "hbm",
+          "bytes": 48,
+          "start_ns": 93.0,
+          "end_ns": 101.0,
+          "resources": [
+            "link:gpu:hbm",
+            "dma:gpu",
+            "dma:hbm"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "half_projection",
+          "device": "hbm",
+          "start_ns": 101.0,
+          "end_ns": 114.0,
+          "resources": [
+            "compute:hbm"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 2,
+          "tensor": "hidden_i32",
+          "source": "sram",
+          "destination": "gpu",
+          "bytes": 96,
+          "start_ns": 101.0,
+          "end_ns": 112.0,
+          "resources": [
+            "link:sram:gpu",
+            "dma:sram",
+            "dma:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 0,
+          "node": "probabilities",
+          "device": "gpu",
+          "start_ns": 104.5,
+          "end_ns": 116.0,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "activation",
+          "device": "gpu",
+          "start_ns": 116.0,
+          "end_ns": 129.0,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 0,
+          "tensor": "probabilities",
+          "source": "gpu",
+          "destination": "host",
+          "bytes": 48,
+          "start_ns": 116.0,
+          "end_ns": 124.0,
+          "resources": [
+            "link:gpu:host",
+            "dma:gpu",
+            "dma:host"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 1,
+          "tensor": "logits_f16",
+          "source": "hbm",
+          "destination": "gpu",
+          "bytes": 24,
+          "start_ns": 124.0,
+          "end_ns": 130.5,
+          "resources": [
+            "link:hbm:gpu",
+            "dma:hbm",
+            "dma:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "to_fp32",
+          "device": "gpu",
+          "start_ns": 130.5,
+          "end_ns": 142.0,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 1,
+          "node": "probabilities",
+          "device": "gpu",
+          "start_ns": 142.0,
+          "end_ns": 153.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "to_fp16",
+          "device": "gpu",
+          "start_ns": 153.5,
+          "end_ns": 166.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 1,
+          "tensor": "probabilities",
+          "source": "gpu",
+          "destination": "host",
+          "bytes": 48,
+          "start_ns": 153.5,
+          "end_ns": 161.5,
+          "resources": [
+            "link:gpu:host",
+            "dma:gpu",
+            "dma:host"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 2,
+          "tensor": "hidden_f16",
+          "source": "gpu",
+          "destination": "hbm",
+          "bytes": 48,
+          "start_ns": 166.5,
+          "end_ns": 174.5,
+          "resources": [
+            "link:gpu:hbm",
+            "dma:gpu",
+            "dma:hbm"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "half_projection",
+          "device": "hbm",
+          "start_ns": 174.5,
+          "end_ns": 187.5,
+          "resources": [
+            "compute:hbm"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 2,
+          "tensor": "logits_f16",
+          "source": "hbm",
+          "destination": "gpu",
+          "bytes": 24,
+          "start_ns": 187.5,
+          "end_ns": 194.0,
+          "resources": [
+            "link:hbm:gpu",
+            "dma:hbm",
+            "dma:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "to_fp32",
+          "device": "gpu",
+          "start_ns": 194.0,
+          "end_ns": 205.5,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "compute",
+          "request": 2,
+          "node": "probabilities",
+          "device": "gpu",
+          "start_ns": 205.5,
+          "end_ns": 217.0,
+          "resources": [
+            "compute:gpu"
+          ]
+        },
+        {
+          "kind": "transfer",
+          "request": 2,
+          "tensor": "probabilities",
+          "source": "gpu",
+          "destination": "host",
+          "bytes": 48,
+          "start_ns": 217.0,
+          "end_ns": 225.0,
+          "resources": [
+            "link:gpu:host",
+            "dma:gpu",
+            "dma:host"
+          ]
+        }
+      ]
+    }
+  ],
+  "rejection_checks": {
+    "missing_route": {
+      "rejected": true,
+      "reason": "no transfer route for input to sram"
+    },
+    "capacity_exceeded": {
+      "rejected": true,
+      "reason": "sram: scheduled live tensors and workspace exceed capacity"
+    }
+  },
+  "evidence": {
+    "functional_execution": "actual tensors on the host via NumPy",
+    "timing": "deterministic resource schedule using equal illustrative analytical coefficients",
+    "shared_platform": "All four experiments declare the identical SRAM/HBM/GPU/NPU devices and directed links; only placement changes.",
+    "task_quality_evaluated": false,
+    "hardware_execution": false,
+    "hardware_calibrated": false,
+    "native_backends_executed": false,
+    "energy_claim": false,
+    "source_sha256": "69facd3fa8b2dae5706bb23002348ff53d6542db99da96dab3cb588f02812f1c",
+    "numpy_version": "2.2.6"
+  }
+}

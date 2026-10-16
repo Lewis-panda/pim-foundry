@@ -2,6 +2,10 @@
 
 When a matrix multiplication runs on a selected backend, its returned array becomes the input to the next operation. The scheduler uses the operation's separately reported cost to place compute and transfer events. This separation lets a numerical failure, a scheduling assumption, and a timing-model error remain distinguishable.
 
+![Concrete application execution, independent numerical checks, and separate resource accounting.](assets/system-operation.svg)
+
+For executable platform combinations, actual transfer sizes and a three-request timeline, see [the architecture gallery](architecture-gallery.md).
+
 ## From an application to a result
 
 ```mermaid

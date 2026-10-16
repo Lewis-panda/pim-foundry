@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1090" viewBox="0 0 1280 1090" role="img" aria-labelledby="title description">
+<title id="title">PIM Foundry system operation: tensors, profiles, schedules and evidence</title><desc id="description">Application assets and platform configuration enter shared validation. Actual tensor operators produce arrays consumed by subsequent operators. These executed operators produce separate placement, duration, dependency and byte profiles. The scheduler reserves compute, directed links and endpoint DMA and checks live memory capacity. Independent references check outputs. Evidence records scope, hashes, replay and admitted comparisons. Execution is simulated; modeled device time is distinct from host execution time.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#087f83" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="blue-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#3265af" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;fill:#14263d}.title{font-size:34px;font-weight:750;letter-spacing:-.6px}.section{font-size:24px;font-weight:700}.body{font-size:19px}.small{font-size:17px;fill:#50647b}.tiny{font-size:16px;fill:#50647b}.label{font-size:17px;font-weight:700;fill:#087f83}.eyebrow{font-size:14px;font-weight:700;letter-spacing:1.5px;fill:#087f83}.node{font-size:19px;font-weight:700}.white{fill:white}</style></defs>
+<rect width="1280" height="1090" rx="24" fill="#f4f8fb"/>
+
+<text x="40" y="42" class="eyebrow">PIM FOUNDRY / SYSTEM OPERATION</text>
+<text x="40" y="88" class="title">Follow the tensor. Account for every resource.</text>
+<text x="40" y="119" class="body">Actual arrays establish numerical behavior; separate cost profiles drive the modeled schedule.</text>
+<rect x="40" y="150" width="580" height="142" rx="14" fill="white" stroke="#d5e1eb"/>
+<text x="64" y="184" class="section">Application assets</text>
+<text x="64" y="217" class="body">Graph / ONNX / GPT-2 · inputs · weight tensors</text>
+<text x="64" y="246" class="body">Explicit state (for example KV) + reference arrays</text>
+<text x="64" y="274" class="small">Scenario: arrivals · warm / cold weights · quality policy.</text>
+<rect x="660" y="150" width="580" height="142" rx="14" fill="white" stroke="#d5e1eb"/>
+<text x="684" y="184" class="section">Platform + experiment</text>
+<text x="684" y="217" class="body">Devices / backends · placement · directed links</text>
+<text x="684" y="246" class="body">Rates · capacity · node placement · link assumptions</text>
+<text x="684" y="274" class="small">Experiment identity fixes the mapping and assumptions.</text>
+<path d="M 330 292 V 333" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 950 292 V 333" fill="none" stroke="#3265af" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#blue-arrow)"/>
+<rect x="40" y="341" width="1200" height="104" rx="14" fill="white" stroke="#d5e1eb"/>
+<text x="64" y="376" class="section">1  Adapt, validate and lower</text>
+<text x="64" y="407" class="body">Check dependencies, shapes, dtypes, placement and capabilities before each operation executes.</text>
+<text x="64" y="433" class="small">Precision changes are explicit cast nodes. Unsupported combinations fail with a reason.</text>
+<path d="M 320 445 V 484" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 960 445 V 484" fill="none" stroke="#3265af" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#blue-arrow)"/>
+<rect x="40" y="492" width="560" height="278" rx="14" fill="white" stroke="#d5e1eb"/>
+<text x="64" y="529" class="section">2A  Execute actual tensor values</text>
+<text x="64" y="560" class="small">NumPy operators or native instruction interpreters</text>
+<rect x="64" y="588" width="140" height="76" rx="10" fill="#e9f6f4" stroke="#b7dcd7"/>
+<text x="134.0" y="618" class="node" text-anchor="middle">Graph op A</text>
+<text x="134.0" y="645" class="tiny" text-anchor="middle">selected backend</text>
+<rect x="247" y="588" width="126" height="76" rx="10" fill="#e9f6f4" stroke="#b7dcd7"/>
+<text x="310.0" y="618" class="node" text-anchor="middle">Array</text>
+<text x="310.0" y="645" class="tiny" text-anchor="middle">dtype + shape</text>
+<rect x="416" y="588" width="160" height="76" rx="10" fill="#e9f6f4" stroke="#b7dcd7"/>
+<text x="496.0" y="618" class="node" text-anchor="middle">Graph op B</text>
+<text x="496.0" y="645" class="tiny" text-anchor="middle">consumes op A</text>
+<path d="M 208 626 H 239" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 377 626 H 408" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<text x="64" y="705" class="body">Weights and state supply real input bytes.</text>
+<text x="64" y="736" class="body">Each output becomes the next operation’s input.</text>
+<rect x="680" y="492" width="560" height="278" rx="14" fill="white" stroke="#d5e1eb"/>
+<text x="704" y="529" class="section">2B  Build a resource schedule</text>
+<rect x="704" y="550" width="512" height="63" rx="9" fill="#eef3fb" stroke="#cad9eb"/>
+<text x="722" y="576" class="node">Operation profiles</text>
+<text x="722" y="601" class="small">Placement · duration · dependencies · tensor bytes</text>
+<path d="M 960 613 V 637" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="704" y="645" width="512" height="100" rx="9" fill="#e9f6f4" stroke="#b7dcd7"/>
+<text x="722" y="672" class="node">Reserve compute + transfer resources</text>
+<text x="722" y="701" class="small">GPU → HBM copy: link + GPU DMA + HBM DMA</text>
+<text x="722" y="728" class="small">Wait for inputs; overlap only when resources permit.</text>
+<path d="M 600 585 H 672" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<text x="640" y="564" class="tiny" text-anchor="middle">op + bytes</text>
+<path d="M 320 770 V 811" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 960 770 V 811" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="40" y="819" width="560" height="108" rx="14" fill="white" stroke="#d5e1eb"/>
+<text x="64" y="854" class="section">3A  Check outputs</text>
+<text x="64" y="884" class="body">Compare with independent reference arrays.</text>
+<text x="64" y="911" class="small">Task quality is a separate, application-specific check.</text>
+<rect x="680" y="819" width="560" height="108" rx="14" fill="white" stroke="#d5e1eb"/>
+<text x="704" y="854" class="section">3B  Check capacity and report costs</text>
+<text x="704" y="884" class="body">Count live weights, state, outputs and workspace.</text>
+<text x="704" y="911" class="small">Report modeled time / energy with explicit provenance.</text>
+<path d="M 320 927 V 947 H 640 V 968" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 960 927 V 947 H 640" fill="none" stroke="#087f83" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="40" y="975" width="1200" height="78" rx="14" fill="#14263d" stroke="#14263d"/>
+<text x="64" y="1007" class="section" style="fill:white">4  Preserve the evidence</text>
+<text x="64" y="1036" class="body" style="fill:#d7e7f5">Sealed assets + hashes → verify / replay → qualify comparisons by task, quality, scope and resources</text>
+<text x="1240" y="1077" class="tiny" text-anchor="end">Model output ≠ measured physical-device performance.</text>
+</svg>

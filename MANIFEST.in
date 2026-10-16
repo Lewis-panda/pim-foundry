@@ -6,7 +6,7 @@ include CITATION.cff
 include CONTRIBUTING.md
 include SECURITY.md
 include VALIDATION.md
-recursive-include docs *.md *.svg *.png
+recursive-include docs *.md *.svg *.png *.html
 recursive-include examples *.py
 recursive-include tests *.py
 recursive-include scripts *.py

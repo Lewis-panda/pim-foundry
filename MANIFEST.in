@@ -1,0 +1,20 @@
+include LICENSE
+include THIRD_PARTY_NOTICES.md
+include README.md
+include README.zh-TW.md
+include CITATION.cff
+include CONTRIBUTING.md
+include SECURITY.md
+include VALIDATION.md
+recursive-include docs *.md
+recursive-include examples *.py
+recursive-include tests *.py
+recursive-include scripts *.py
+recursive-include configs *.json
+recursive-include validation *.json
+recursive-include patches *.patch *.json *.md UPSTREAM_LICENSE
+include upstream/manifest.json
+prune runs
+prune external
+prune upstream/DCC
+global-exclude __pycache__ *.py[cod]

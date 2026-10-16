@@ -1,0 +1,500 @@
+{
+  "schema": "pim-foundry.ci-tests.v1",
+  "profile": "core",
+  "python": "3.12.3",
+  "optional_dependencies": {
+    "numpy": false,
+    "onnx": false
+  },
+  "discovered": 518,
+  "tests_run_including_skips": 518,
+  "passed_tests": 398,
+  "failures": 0,
+  "errors": 0,
+  "skipped": [
+    {
+      "test": "test_backend.BackendIntegrationTests.test_all_eligible_candidates_in_shape_sweep_match_preflight_counts",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_backend.BackendIntegrationTests.test_compile_generates_deterministic_trace_and_report",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_backend.BackendIntegrationTests.test_default_enumeration_is_deterministic_and_has_eligible_candidates",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_backend.BackendIntegrationTests.test_existing_output_contents_are_preserved",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_backend.BackendIntegrationTests.test_invalid_candidate_id_does_not_create_output",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_backend.BackendIntegrationTests.test_no_eligible_candidate_is_an_explicit_failure",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_backend.BackendIntegrationTests.test_rejected_candidate_id_does_not_create_output",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_backend.BackendIntegrationTests.test_yaml_uses_quoted_final_path_and_removes_shared_recorder",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_cimflow.CimflowNativeTests.test_ragged_native_execution_and_functional_lowering",
+      "reason": "native simulator path not configured"
+    },
+    {
+      "test": "test_dcc_patch.NativeCompletionTests.test_existing_native_regression_proof_contains_paper_trace",
+      "reason": "optional native DCC build is not present"
+    },
+    {
+      "test": "test_dcc_patch.NativeCompletionTests.test_fences_preserve_two_completion_intervals",
+      "reason": "optional native DCC build is not present"
+    },
+    {
+      "test": "test_dcc_patch.NativeCompletionTests.test_idle_channels_and_empty_trace_are_safe",
+      "reason": "optional native DCC build is not present"
+    },
+    {
+      "test": "test_dcc_patch.NativeCompletionTests.test_missing_completion_assumption_is_rejected",
+      "reason": "optional native DCC build is not present"
+    },
+    {
+      "test": "test_dcc_patch.NativeCompletionTests.test_pim_writeback_tail_obeys_explicit_model",
+      "reason": "optional native DCC build is not present"
+    },
+    {
+      "test": "test_dcc_patch.NativeCompletionTests.test_refresh_completion_is_drained_using_source_nRFC",
+      "reason": "optional native DCC build is not present"
+    },
+    {
+      "test": "test_dcc_patch.NativeCompletionTests.test_write_recovery_tail_obeys_source_timing",
+      "reason": "optional native DCC build is not present"
+    },
+    {
+      "test": "test_native_hbm.NativeIntegrationTests.test_real_asan_banked_trace",
+      "reason": "explicit optional native integration"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_boundary_flatten_changes_view_not_storage",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_cannot_change_static_dimensions",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_corrupted_actual_output_fails_independent_quality",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_dynamic_dimensions_require_binding",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_explicit_add_initializer_broadcast",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_explicit_int8_to_half_cast",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_external_initializers_rejected_before_file_access",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_flatten_shared_input_is_rejected",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_float_to_integer_cast_rejects_rounding_mismatch",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_fp16_mlp_storage_is_preserved",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_gemm_scaling_cannot_be_silently_dropped",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_identity_output_aliases_preserve_both_outputs",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_input_shape_and_integer_validation",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_int32_add_wrap_matches_onnx",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_int8_add_rejects_wrong_overflow_semantics",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_nonfinite_initializer_rejected",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_raw_initializer_bytes_fp32_mlp",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_runtime_broadcast_is_not_silently_removed",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_runtime_weight_rejected_by_supported_application_subset",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_source_bytes_are_bound_even_if_file_changes",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_transpose_constant_gemm_weight",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_onnx_frontend.OnnxFrontendTests.test_unsupported_operator_reports_source_node",
+      "reason": "install optional ONNX dependencies to test model interoperability"
+    },
+    {
+      "test": "test_tensor_application.TensorApplicationTests.test_complete_onnx_bundle_verifies_and_replays",
+      "reason": "ONNX/NumPy optional dependencies unavailable"
+    },
+    {
+      "test": "test_tensor_application.TensorApplicationTests.test_source_model_tampering_is_detected_before_run",
+      "reason": "ONNX/NumPy optional dependencies unavailable"
+    },
+    {
+      "test": "test_tensor_application.TensorApplicationTests.test_wrong_independent_reference_is_quality_failure",
+      "reason": "ONNX/NumPy optional dependencies unavailable"
+    },
+    {
+      "test": "test_tensor_onnx.TensorOnnxTests.test_actual_backend_wrong_output_is_detected",
+      "reason": "ONNX/NumPy optional dependencies unavailable"
+    },
+    {
+      "test": "test_tensor_onnx.TensorOnnxTests.test_argmax_exact_output_and_bias_broadcast_gemm",
+      "reason": "ONNX/NumPy optional dependencies unavailable"
+    },
+    {
+      "test": "test_tensor_onnx.TensorOnnxTests.test_attention_residual_normalization_matches_original",
+      "reason": "ONNX/NumPy optional dependencies unavailable"
+    },
+    {
+      "test": "test_tensor_onnx.TensorOnnxTests.test_complete_cnn_with_gemm_matches_original_onnx",
+      "reason": "ONNX/NumPy optional dependencies unavailable"
+    },
+    {
+      "test": "test_tensor_onnx.TensorOnnxTests.test_dynamic_int64_token_gather_checked_and_mapped",
+      "reason": "ONNX/NumPy optional dependencies unavailable"
+    },
+    {
+      "test": "test_tensor_onnx.TensorOnnxTests.test_global_pool_and_gelu_match_original",
+      "reason": "ONNX/NumPy optional dependencies unavailable"
+    },
+    {
+      "test": "test_tensor_onnx.TensorOnnxTests.test_reject_external_initializers",
+      "reason": "ONNX/NumPy optional dependencies unavailable"
+    },
+    {
+      "test": "test_tensor_onnx.TensorOnnxTests.test_reject_float_integer_cast_semantic_mismatch",
+      "reason": "ONNX/NumPy optional dependencies unavailable"
+    },
+    {
+      "test": "test_tensor_onnx.TensorOnnxTests.test_reject_int64_arithmetic_and_nonfinite_weights",
+      "reason": "ONNX/NumPy optional dependencies unavailable"
+    },
+    {
+      "test": "test_tensor_onnx.TensorOnnxTests.test_reject_unsupported_operator_and_semantic_attributes",
+      "reason": "ONNX/NumPy optional dependencies unavailable"
+    },
+    {
+      "test": "test_tensor_onnx.TensorOnnxTests.test_reshape_zero_copy_and_transpose",
+      "reason": "ONNX/NumPy optional dependencies unavailable"
+    },
+    {
+      "test": "test_tensor_onnx.TensorOnnxTests.test_runtime_shape_binding_and_constant_shape_program",
+      "reason": "ONNX/NumPy optional dependencies unavailable"
+    },
+    {
+      "test": "test_tensor_platform.TensorPlatformTests.test_attention_cost_accounts_for_quadratic_scores",
+      "reason": "optional NumPy required"
+    },
+    {
+      "test": "test_tensor_platform.TensorPlatformTests.test_batched_actual_output_and_transfer_accounting",
+      "reason": "optional NumPy required"
+    },
+    {
+      "test": "test_tensor_platform.TensorPlatformTests.test_capacity_uses_live_inputs_and_output",
+      "reason": "optional NumPy required"
+    },
+    {
+      "test": "test_tensor_platform.TensorPlatformTests.test_concurrency_keeps_all_resources_exclusive",
+      "reason": "optional NumPy required"
+    },
+    {
+      "test": "test_tensor_platform.TensorPlatformTests.test_executed_unused_node_keeps_request_alive",
+      "reason": "optional NumPy required"
+    },
+    {
+      "test": "test_tensor_platform.TensorPlatformTests.test_invalid_profile_timing_and_ssa_rejected",
+      "reason": "optional NumPy required"
+    },
+    {
+      "test": "test_tensor_platform.TensorPlatformTests.test_missing_route_rejected",
+      "reason": "optional NumPy required"
+    },
+    {
+      "test": "test_tensor_platform.TensorPlatformTests.test_native_hbm_batched_actual_tensors",
+      "reason": "optional NumPy required"
+    },
+    {
+      "test": "test_tensor_platform.TensorPlatformTests.test_native_sram_batched_actual_tensors",
+      "reason": "optional NumPy required"
+    },
+    {
+      "test": "test_tensor_platform.TensorPlatformTests.test_placement_and_implicit_precision_rejected",
+      "reason": "optional NumPy required"
+    },
+    {
+      "test": "test_tensor_platform.TensorPlatformTests.test_sram_split_reduction_requires_explicit_graph",
+      "reason": "optional NumPy required"
+    },
+    {
+      "test": "test_tensor_platform.TensorPlatformTests.test_timestamp_translation_does_not_change_latency_or_energy",
+      "reason": "optional NumPy required"
+    },
+    {
+      "test": "test_tensor_platform.TensorPlatformTests.test_warm_weights_shared_and_input_transferred_each_request",
+      "reason": "optional NumPy required"
+    },
+    {
+      "test": "test_tensor_runtime.TensorOnnxOracleTests.test_grouped_dilated_convolution_matches_onnx_reference",
+      "reason": "ONNX independent reference unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorOnnxOracleTests.test_layer_norm_matches_onnx_reference",
+      "reason": "ONNX independent reference unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorOnnxOracleTests.test_matmul_matches_onnx_reference",
+      "reason": "ONNX independent reference unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorOnnxOracleTests.test_pooling_matches_onnx_reference",
+      "reason": "ONNX independent reference unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_activations_and_round_even_cast",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_allocation_and_work_limits_precede_callback",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_argmax_greedy_first_tie_and_scalar_gelu",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_attention_future_tokens_cannot_affect_past_output",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_batched_broadcast_matmul_against_scalar_loops",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_callback_actual_output_reaches_downstream_node",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_callback_wrong_shape_dtype_or_nonfinite_rejected",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_causal_attention_matches_independent_scalar_oracle",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_embedding_gather_and_negative_index_policy",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_full_attention_equals_incremental_cache_execution",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_grouped_convolution_known_result",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_half_storage_accumulates_in_float32",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_integer_matmul_exact_and_overflow_rejected",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_invalid_operator_attributes_and_indices_rejected",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_layer_norm_and_rms_norm_equations",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_pooling_padding_denominator",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_reject_mixed_dtype_implicit_input_cast",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_reject_nonfinite_input_and_overflow",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_reject_ssa_and_unbound_input",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_reject_symbol_conflicts_bounds_and_unbound_reshape",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_rotary_both_conventions_and_unchanged_tail",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_softmax_stability_and_shift_invariance",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_symbolic_shapes_and_explicit_state",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_transpose_reshape_slice_concat",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_tensor_runtime.TensorRuntimeTests.test_vector_and_scalar_matmul_outputs",
+      "reason": "NumPy optional dependency unavailable"
+    },
+    {
+      "test": "test_transformer_application.TransformerApplicationTests.test_batch_change_requires_reset",
+      "reason": "optional NumPy dependency"
+    },
+    {
+      "test": "test_transformer_application.TransformerApplicationTests.test_batch_matches_independent_requests",
+      "reason": "optional NumPy dependency"
+    },
+    {
+      "test": "test_transformer_application.TransformerApplicationTests.test_cached_decode_matches_full_recompute_and_state_shapes",
+      "reason": "optional NumPy dependency"
+    },
+    {
+      "test": "test_transformer_application.TransformerApplicationTests.test_capacity_failure_does_not_mutate_cache",
+      "reason": "optional NumPy dependency"
+    },
+    {
+      "test": "test_transformer_application.TransformerApplicationTests.test_future_tokens_do_not_change_prefix_logits",
+      "reason": "optional NumPy dependency"
+    },
+    {
+      "test": "test_transformer_application.TransformerApplicationTests.test_generation_is_greedy_and_reset_each_call",
+      "reason": "optional NumPy dependency"
+    },
+    {
+      "test": "test_transformer_application.TransformerApplicationTests.test_generation_rejects_fractional_ids",
+      "reason": "optional NumPy dependency"
+    },
+    {
+      "test": "test_transformer_application.TransformerApplicationTests.test_model_config_cannot_silently_change_attention",
+      "reason": "optional NumPy dependency"
+    },
+    {
+      "test": "test_transformer_application.TransformerApplicationTests.test_nll_labels_matter",
+      "reason": "optional NumPy dependency"
+    },
+    {
+      "test": "test_transformer_application.TransformerApplicationTests.test_nll_rejects_invalid_labels_and_nonfinite_logits",
+      "reason": "optional NumPy dependency"
+    },
+    {
+      "test": "test_transformer_application.TransformerApplicationTests.test_nll_target_shift_and_denominator",
+      "reason": "optional NumPy dependency"
+    },
+    {
+      "test": "test_transformer_application.TransformerApplicationTests.test_platform_runtime_mutation_between_calls_is_rejected",
+      "reason": "optional NumPy dependency"
+    },
+    {
+      "test": "test_transformer_application.TransformerApplicationTests.test_precision_variant_inserts_real_cast_nodes",
+      "reason": "optional NumPy dependency"
+    },
+    {
+      "test": "test_transformer_application.TransformerApplicationTests.test_precision_variant_rejects_unknown_or_nonlinear_nodes",
+      "reason": "optional NumPy dependency"
+    },
+    {
+      "test": "test_transformer_application.TransformerApplicationTests.test_rejects_bad_token_ids",
+      "reason": "optional NumPy dependency"
+    },
+    {
+      "test": "test_transformer_application.TransformerApplicationTests.test_reset_prevents_cross_request_cache_contamination",
+      "reason": "optional NumPy dependency"
+    },
+    {
+      "test": "test_transformer_application.TransformerApplicationTests.test_unknown_platform_energy_is_omitted_not_zero",
+      "reason": "optional NumPy dependency"
+    },
+    {
+      "test": "test_transformer_application.TransformerApplicationTests.test_weight_coverage_and_dtype_are_enforced",
+      "reason": "optional NumPy dependency"
+    },
+    {
+      "test": "test_upstream_audit.RecordedUpstreamDefectTests.test_recorded_alignment_defect_exceeds_resources_for_search_results",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_upstream_audit.RecordedUpstreamDefectTests.test_recorded_argument_order_defect_swaps_declared_operand_bases",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_upstream_audit.RecordedUpstreamDefectTests.test_recorded_capacity_defect_continues_when_one_matrix_cannot_fit",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_upstream_audit.RecordedUpstreamDefectTests.test_recorded_iteration_defect_ignores_external_iteration_argument",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_upstream_audit.RecordedUpstreamDefectTests.test_recorded_multihead_defect_writes_same_output_address",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_upstream_audit.RecordedUpstreamDefectTests.test_recorded_reduction_defect_above_128_omits_later_chunks",
+      "reason": "optional author DCC generator sources are not installed"
+    }
+  ],
+  "unexpected_skips": [],
+  "complete_discovery": true,
+  "passed": true,
+  "evidence_scope": "software regression tests; not hardware or full-paper validation"
+}

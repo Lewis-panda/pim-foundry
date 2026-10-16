@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, cite its version and also cite the original papers and simulators used by your experiment."
+title: "PIM Foundry"
+type: software
+authors:
+  - name: "PIM Foundry contributors"
+version: 0.8.0
+date-released: 2026-10-16
+url: "https://github.com/Lewis-panda/pim-foundry"
+repository-code: "https://github.com/Lewis-panda/pim-foundry"
+license: MIT
+abstract: "A research framework for actual tensor execution, explicit CIM/PIM backend contracts, heterogeneous resource simulation, and reproducible evidence-bound comparisons."
+keywords:
+  - compute-in-memory
+  - processing-in-memory
+  - hardware-simulation
+  - reproducibility

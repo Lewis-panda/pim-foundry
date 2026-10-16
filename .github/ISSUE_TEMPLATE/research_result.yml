@@ -1,0 +1,30 @@
+name: Research result or reproduction discrepancy
+description: Discuss a paper adapter, questionable metric, or reproducibility result with traceable evidence.
+title: '[Research] '
+body:
+  - type: textarea
+    id: source
+    attributes:
+      label: Source and scope
+      description: Paper DOI or public URL, version, relevant table or figure, artifact repository and commit, and the precise claim being examined.
+    validations:
+      required: true
+  - type: textarea
+    id: protocol
+    attributes:
+      label: Workload and comparison protocol
+      description: Include shapes, precision, batch and sequence lengths, placement, hardware or model budget, baseline, timing or energy boundary, and aggregation method.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Observations and reproducible evidence
+      description: Include commands, logs, bundle hashes or public bundle location, numerical or task quality results, repeat count, and variation. Distinguish measurements, simulated results, and author claims.
+    validations:
+      required: true
+  - type: textarea
+    id: uncertainty
+    attributes:
+      label: Uncertainty and missing controls
+      description: Identify unresolved differences, omitted components, and missing evidence. A discrepancy alone does not establish misconduct.

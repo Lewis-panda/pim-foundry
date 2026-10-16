@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pim-foundry"
+version = "0.8.0"
+description = "Reproducible CIM/PIM application experiments with independent correctness checks and paper artifact adapters"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+license = {file = "LICENSE"}
+authors = [{name = "PIM Foundry contributors"}]
+keywords = ["CIM", "PIM", "compute-in-memory", "simulation", "reproducibility"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering",
+]
+
+[project.urls]
+Homepage = "https://github.com/Lewis-panda/pim-foundry"
+Repository = "https://github.com/Lewis-panda/pim-foundry"
+Issues = "https://github.com/Lewis-panda/pim-foundry/issues"
+Documentation = "https://github.com/Lewis-panda/pim-foundry/tree/main/docs"
+
+[project.optional-dependencies]
+tensor = ["numpy==2.2.6"]
+onnx = ["onnx==1.19.0", "numpy==2.2.6", "protobuf==6.32.1", "typing_extensions==4.15.0", "ml_dtypes==0.5.3"]
+
+[project.scripts]
+pim-foundry = "pim_foundry.__main__:main"
+
+[tool.setuptools]
+packages = ["pim_foundry"]
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]

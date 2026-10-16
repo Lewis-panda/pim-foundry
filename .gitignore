@@ -1,0 +1,32 @@
+# Local data, models, author artifacts, credentials and execution snapshots.
+/runs/
+/external/
+/upstream/DCC/
+/build/
+/dist/
+*.egg-info/
+.venv*/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+.idea/
+.vscode/
+
+# Large model/data files belong in explicitly managed external assets.
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.msgpack
+*.npz
+*.npy
+*.onnx

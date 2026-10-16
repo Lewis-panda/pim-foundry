@@ -1,0 +1,255 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -68,7 +68,7 @@
+ 
+ add_library(ramulator SHARED)
+ set_target_properties(ramulator PROPERTIES
+-  LIBRARY_OUTPUT_DIRECTORY  ${PROJECT_SOURCE_DIR}
++  LIBRARY_OUTPUT_DIRECTORY  ${CMAKE_BINARY_DIR}
+ )
+ target_link_libraries(
+   ramulator 
+--- a/src/dram_controller/impl/hbm3_pim_controller.cpp
++++ b/src/dram_controller/impl/hbm3_pim_controller.cpp
+@@ -6,7 +6,11 @@
+ class HBM3PIMController final : public IDRAMController, public Implementation {
+   RAMULATOR_REGISTER_IMPLEMENTATION(IDRAMController, HBM3PIMController, "HBM3-PIM", "A HBM3-PIM controller.");
+   private:
+-    std::deque<Request> pending;          // A queue for read requests that are about to finish (callback after RL)
++    std::deque<Request> pending;  // All modeled completions, ordered by depart time.
++    // Completion latency is distinct from command issue spacing. No PIM
++    // completion value exists in the source preset: require an explicit model.
++    std::map<std::string, int> m_pim_completion_names;
++    std::map<int, Clk_t> m_pim_completion_cycles;
+ 
+     ReqBuffer m_active_buffer;            // Buffer for requests being served. This has the highest priority 
+     ReqBuffer m_priority_buffer;          // Buffer for high-priority requests (e.g., maintenance like refresh).
+@@ -33,6 +37,19 @@
+       m_wr_low_watermark =  param<float>("wr_low_watermark").desc("Threshold for switching back to read mode.").default_val(0.2f);
+       m_wr_high_watermark = param<float>("wr_high_watermark").desc("Threshold for switching to write mode.").default_val(0.8f);
+ 
++      if (auto latencies = m_config["pim_completion_cycles"]) {
++        if (!latencies.IsMap()) {
++          throw ConfigurationError("pim_completion_cycles must be a command-to-cycles map");
++        }
++        for (auto entry : latencies) {
++          auto name = entry.first.as<std::string>();
++          int cycles = entry.second.as<int>();
++          if (cycles <= 0 || cycles > 1000000 || m_pim_completion_names.count(name)) {
++            throw ConfigurationError("Invalid or duplicate PIM completion latency for {}", name);
++          }
++          m_pim_completion_names.emplace(name, cycles);
++        }
++      }
+       m_scheduler = create_child_ifce<IScheduler>();
+       m_refresh = create_child_ifce<IRefreshManager>();    
+ 
+@@ -48,19 +65,35 @@
+       m_dram = memory_system->get_ifce<IDRAM>();
+       m_row_addr_idx = m_dram->m_levels("row");
+       m_priority_buffer.max_size = 512*3 + 32;
++      for (const auto& [name, cycles] : m_pim_completion_names) {
++        int command;
++        try {
++          command = m_dram->m_commands(name);
++        } catch (const std::out_of_range&) {
++          throw ConfigurationError("Unknown PIM completion command {}", name);
++        }
++        m_pim_completion_cycles.emplace(command, cycles);
++      }
+     };
+ 
+     bool send(Request& req) override {
+       req.final_command = m_dram->m_request_translations(req.type_id);
+       
+-      //FIX PIM_BARRIER
++      // A channel-scoped fence may pass only after all earlier modeled work.
+       if (req.type_id == Request::Type::PIM_BARRIER){
+-        if (m_active_buffer.size() > 0 || m_pim_buffer.size() > 0 || m_read_buffer.size() > 0 || m_write_buffer.size() > 0){
++        if (is_pending()){
+           req.arrive = -1;
+           return false;
+         }
+       }
+       
++      if (req.type_id >= Request::Type::PIM_MAC_AB &&
++          req.type_id != Request::Type::PIM_BARRIER &&
++          !m_pim_completion_cycles.count(req.final_command)) {
++        throw ConfigurationError("Missing explicit PIM completion latency for {}",
++                                 m_dram->m_commands(req.final_command));
++      }
++
+       // Forward existing write requests to incoming read requests
+       if (req.type_id == Request::Type::Read) {
+         auto compare_addr = [req](const Request& wreq) {
+@@ -69,7 +102,7 @@
+         if (std::find_if(m_write_buffer.begin(), m_write_buffer.end(), compare_addr) != m_write_buffer.end()) {
+           // The request will depart at the next cycle
+           req.depart = m_clk + 1;
+-          pending.push_back(req);
++          enqueue_completion(req);
+           return true;
+         }
+       }
+@@ -145,6 +178,13 @@
+         plugin->update(request_found, req_it);
+       }
+ 
++      // Preserve the command before erasing/moving the owning list node.
++      // A second command is meaningful only if a first command was issued.
++      if (!request_found) {
++        return;
++      }
++      const int first_command = req_it->command;
++
+       // 4. Finally, issue the commands to serve the request
+       if (request_found) {
+         // If we find a real request to serve
+@@ -152,12 +192,7 @@
+ 
+         // If we are issuing the last command, set depart clock cycle and move the request to the pending queue
+         if (req_it->command == req_it->final_command) {
+-          if (req_it->type_id == Request::Type::Read) {
+-            req_it->depart = m_clk + m_dram->m_read_latency;
+-            pending.push_back(*req_it);
+-          } else if (req_it->type_id == Request::Type::Write) {
+-            // TODO: Add code to update statistics
+-          }
++          track_completion(*req_it);
+           buffer->remove(req_it);
+         } else {
+           if (!is_pim) {
+@@ -173,7 +208,7 @@
+       ReqBuffer::iterator sec_req_it;
+       ReqBuffer* sec_buffer = nullptr;
+       bool sec_request_found = false;
+-      sec_request_found = schedule_sec_request(sec_req_it, buffer, req_it->command);
++      sec_request_found = schedule_sec_request(sec_req_it, sec_buffer, first_command);
+       for (auto plugin : m_plugins) {
+         plugin->update(sec_request_found, sec_req_it);
+       }
+@@ -181,17 +216,13 @@
+         m_dram->issue_command(sec_req_it->command, sec_req_it->addr_vec);
+ 
+         if (sec_req_it->command == sec_req_it->final_command) {
+-          if (sec_req_it->type_id == Request::Type::Read) {
+-            sec_req_it->depart = m_clk + m_dram->m_read_latency;
+-            pending.push_back(*sec_req_it);
+-          } else if (sec_req_it->type_id == Request::Type::Write) {
+-          }
+-          buffer->remove(sec_req_it);
++          track_completion(*sec_req_it);
++          sec_buffer->remove(sec_req_it);
+         } else {
+           if (!is_pim) {
+             if (m_dram->m_command_meta(sec_req_it->command).is_opening) {
+               m_active_buffer.enqueue(*sec_req_it);
+-              buffer->remove(sec_req_it);
++              sec_buffer->remove(sec_req_it);
+             }
+           }
+         }
+@@ -205,32 +236,44 @@
+     };
+ 
+   private:
+-    /**
+-     * @brief    Helper function to serve the completed read requests
+-     * @details
+-     * This function is called at the beginning of the tick() function.
+-     * It checks the pending queue to see if the top request has received data from DRAM.
+-     * If so, it finishes this request by calling its callback and poping it from the pending queue.
+-     */
++    void enqueue_completion(const Request& req) {
++      auto position = std::upper_bound(pending.begin(), pending.end(), req.depart,
++          [](Clk_t depart, const Request& other) { return depart < other.depart; });
++      pending.insert(position, req);
++    }
++
++    void track_completion(Request req) {
++      Clk_t latency = 0;
++      if (req.type_id == Request::Type::Read) {
++        latency = m_dram->m_read_latency;
++      } else if (req.type_id == Request::Type::Write) {
++        // Write recovery endpoint, using the source's WR -> PRE timing formula.
++        latency = m_dram->m_timing_vals("nCWL") + m_dram->m_timing_vals("nBL")
++                  + m_dram->m_timing_vals("nWR");
++      } else if (req.final_command == m_dram->m_commands("REFab")) {
++        latency = m_dram->m_timing_vals("nRFC");
++      } else if (req.final_command == m_dram->m_commands("REFsb")) {
++        latency = m_dram->m_timing_vals("nRFCSB");
++      } else if (req.type_id >= Request::Type::PIM_MAC_AB &&
++                 req.type_id != Request::Type::PIM_BARRIER) {
++        latency = m_pim_completion_cycles.at(req.final_command);
++      }
++      if (latency > 0) {
++        req.depart = m_clk + latency;
++        enqueue_completion(req);
++      }
++    }
++
+     void serve_completed_reads() {
+-      if (pending.size()) {
+-        // Check the first pending request
+-        auto& req = pending[0];
+-        if (req.depart <= m_clk) {
+-          // Request received data from dram
+-          if (req.depart - req.arrive > 1) {
+-            // Check if this requests accesses the DRAM or is being forwarded.
+-            // TODO add the stats back
+-          }
+-
+-          if (req.callback) {
+-            // If the request comes from outside (e.g., processor), call its callback
+-            req.callback(req);
+-          }
+-          // Finally, remove this request from the pending queue
+-          pending.pop_front();
+-        }
+-      };
++      // The issue scheduler already accounts for data-bus occupancy. Draining
++      // bookkeeping must not impose another one-completion-per-cycle resource.
++      while (!pending.empty() && pending.front().depart <= m_clk) {
++        Request req = pending.front();
++        pending.pop_front();
++        if (req.callback) {
++          req.callback(req);
++        }
++      }
+     };
+ 
+ 
+@@ -256,6 +299,7 @@
+      * 
+      */
+     bool schedule_request(ReqBuffer::iterator& req_it, ReqBuffer*& req_buffer) {
++      is_pim = false;
+       bool request_found = false;
+       // 2.1    First, check the act buffer to serve requests that are already activating (avoid useless ACTs)
+       if (req_it= m_scheduler->get_best_request(m_active_buffer); req_it != m_active_buffer.end()) {
+@@ -274,7 +318,7 @@
+           req_it->command = m_dram->get_preq_command(req_it->final_command, req_it->addr_vec);
+           
+           request_found = m_dram->check_ready(req_it->command, req_it->addr_vec);
+-          if (!request_found & m_priority_buffer.size() != 0) {
++          if (!request_found && m_priority_buffer.size() != 0) {
+             return false;
+           }
+         }
+@@ -330,6 +374,7 @@
+      * 
+      */
+     bool schedule_sec_request(ReqBuffer::iterator& req_it, ReqBuffer*& req_buffer, int first_command) {
++      is_pim = false;
+       bool request_found = false;
+       // 5.1    First, check the act buffer to serve requests that are already activating (avoid useless ACTs)
+       if (req_it= m_scheduler->get_best_request(m_active_buffer); req_it != m_active_buffer.end()) {
+@@ -351,7 +396,7 @@
+           
+           if (compare_command_type(first_command, req_it->command)) {
+             request_found = m_dram->check_ready(req_it->command, req_it->addr_vec);
+-            if (!request_found & m_priority_buffer.size() != 0) {
++            if (!request_found && m_priority_buffer.size() != 0) {
+               return false;
+             }
+           }

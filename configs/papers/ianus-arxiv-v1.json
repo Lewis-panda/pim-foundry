@@ -1,0 +1,34 @@
+{
+  "schema": "pim-foundry.paper-arithmetic-spec.v1",
+  "paper": "IANUS: Integrated Accelerator based on NPU-PIM Unified Memory System",
+  "source_url": "https://arxiv.org/pdf/2410.15008v1",
+  "source_revision": "arXiv:2410.15008v1, 2024-10-19; updated version, not certified identical to April proceedings",
+  "source_sha256": "8784eb97fcc319f2f850345db59529c5050b58ec0167c9ff8cb39a33e46c253a",
+  "extraction": "Manual transcription from tables and printed figure labels, independently visually checked; not raw measurement data",
+  "table1_table2_page8": {
+    "cores": 4, "pe_rows": 128, "pe_columns": 64, "macs_per_pe_cycle": 4,
+    "flops_per_mac_assumption": 2, "frequency_ghz": 0.7,
+    "reported_core_tflops": 46, "reported_total_tflops": 184,
+    "pin_gbps": 16, "channel_pins": 16, "channels": 8, "bits_per_byte": 8,
+    "reported_external_gbps": 256, "channels_per_chip": 2,
+    "banks_per_channel": 16, "gflops_per_pu": 32,
+    "reported_pim_chip_tflops": 1, "reported_internal_gbps": 4096,
+    "internal_gbps_per_chip": 1024, "gpu_peak_tflops": 255
+  },
+  "figure9_page10": {
+    "unit": "ms", "input_output_tokens": [[32,1],[32,16],[32,256],[64,1],[64,16],[64,256],[128,1],[128,16],[128,256]],
+    "dfx": [227,330,1981,447,550,2201,887,991,2642],
+    "npu_mem": [18,247,3970,18,246,3972,18,249,3983],
+    "ianus": [18,73,989,18,72,990,18,73,997],
+    "reported_average_dfx_speedup": 3.2, "reported_npu_slowdown_percent": 24
+  },
+  "figure14_page11": {
+    "reported_decimal_places": 1,
+    "models": ["BERT-B","BERT-L","BERT-1.3B","BERT-3.9B"],
+    "reported_throughput_ratios": [3.1,2.0,0.8,0.6],
+    "reported_utilization_ratios": [5.2,3.3,1.3,1.0],
+    "assumption": "Same workload FLOP convention and same aggregation weights; utilization = achieved FLOPS / fixed declared peak FLOPS. Different definitions require disclosure and raw data."
+  },
+  "figure13_page11": {"unified_pim_gb": 8, "partitioned_pim_gb": 4, "partitioned_dram_gb": 4},
+  "attention_example_section5_3_page8": {"used_bf16_elements": 64, "row_bf16_elements": 1024, "reported_percent": 6.25}
+}

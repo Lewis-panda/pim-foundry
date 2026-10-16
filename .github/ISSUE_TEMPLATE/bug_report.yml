@@ -1,0 +1,37 @@
+name: Bug report
+description: Report a reproducible incorrect result, failure, or API problem.
+title: '[Bug] '
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Expected and observed behavior
+      description: Explain the input, expected result, and actual result. Include the complete error when available.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Provide the smallest code or configuration that reproduces the problem. Do not attach credentials, private model weights, or private datasets.
+      render: python
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Package version or commit, Python version, OS, installed extras, and backend. For a native simulator, include its repository revision and configuration.
+    validations:
+      required: true
+  - type: dropdown
+    id: execution
+    attributes:
+      label: Execution path
+      options:
+        - Functional reference / analytical model
+        - Native simulator
+        - Hardware measurement
+        - Packaging / documentation / other
+    validations:
+      required: true

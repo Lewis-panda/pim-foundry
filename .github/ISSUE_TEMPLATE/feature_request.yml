@@ -1,0 +1,23 @@
+name: Feature request
+description: Propose an application, backend, operator, or experiment protocol.
+title: '[Feature] '
+body:
+  - type: textarea
+    id: usecase
+    attributes:
+      label: Concrete use case
+      description: Describe the application or experiment you need to run and where the current workflow stops.
+    validations:
+      required: true
+  - type: textarea
+    id: contract
+    attributes:
+      label: Required behavior and validation
+      description: Give an input/output example, shapes and dtypes, supported hardware or model assumptions, and an independent correctness or measurement reference when available.
+    validations:
+      required: true
+  - type: textarea
+    id: resources
+    attributes:
+      label: Public resources
+      description: Link available papers, documented APIs, or licensed artifacts. State any access constraints.

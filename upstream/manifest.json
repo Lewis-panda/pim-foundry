@@ -1,0 +1,18 @@
+{
+  "repository": "https://github.com/SPIN-Research-Group/DCC",
+  "revision": "7ffb80e4f33e357177dc8ab148953c0484e1e322",
+  "files": {
+    "README.md": {
+      "sha256": "7c59c976d23227c363fc5ecbe48cc1a8c9f8e0206623d1ae258217f4f1bb605a",
+      "url": "https://raw.githubusercontent.com/SPIN-Research-Group/DCC/7ffb80e4f33e357177dc8ab148953c0484e1e322/README.md"
+    },
+    "src/generate_configs.py": {
+      "sha256": "98f85972bc9ca1bd0e73e424fc6f7f85fb2672faa72f37017736775f4ce003a6",
+      "url": "https://raw.githubusercontent.com/SPIN-Research-Group/DCC/7ffb80e4f33e357177dc8ab148953c0484e1e322/src/generate_configs.py"
+    },
+    "src/hbmpim_trace_gen/gen_trace_HBMPIM_GEMV.py": {
+      "sha256": "d4d37c8e85ee8175c7685c60e5b36dc05f6153aa2e7608c4ce1b67d5bc44bdfa",
+      "url": "https://raw.githubusercontent.com/SPIN-Research-Group/DCC/7ffb80e4f33e357177dc8ab148953c0484e1e322/src/hbmpim_trace_gen/gen_trace_HBMPIM_GEMV.py"
+    }
+  }
+}

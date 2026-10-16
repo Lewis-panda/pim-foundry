@@ -1,0 +1,120 @@
+{
+  "schema": "pim-foundry.ci-tests.v1",
+  "profile": "onnx",
+  "python": "3.12.3",
+  "optional_dependencies": {
+    "numpy": true,
+    "onnx": true
+  },
+  "discovered": 518,
+  "tests_run_including_skips": 518,
+  "passed_tests": 493,
+  "failures": 0,
+  "errors": 0,
+  "skipped": [
+    {
+      "test": "test_backend.BackendIntegrationTests.test_all_eligible_candidates_in_shape_sweep_match_preflight_counts",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_backend.BackendIntegrationTests.test_compile_generates_deterministic_trace_and_report",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_backend.BackendIntegrationTests.test_default_enumeration_is_deterministic_and_has_eligible_candidates",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_backend.BackendIntegrationTests.test_existing_output_contents_are_preserved",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_backend.BackendIntegrationTests.test_invalid_candidate_id_does_not_create_output",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_backend.BackendIntegrationTests.test_no_eligible_candidate_is_an_explicit_failure",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_backend.BackendIntegrationTests.test_rejected_candidate_id_does_not_create_output",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_backend.BackendIntegrationTests.test_yaml_uses_quoted_final_path_and_removes_shared_recorder",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_cimflow.CimflowNativeTests.test_ragged_native_execution_and_functional_lowering",
+      "reason": "native simulator path not configured"
+    },
+    {
+      "test": "test_dcc_patch.NativeCompletionTests.test_existing_native_regression_proof_contains_paper_trace",
+      "reason": "optional native DCC build is not present"
+    },
+    {
+      "test": "test_dcc_patch.NativeCompletionTests.test_fences_preserve_two_completion_intervals",
+      "reason": "optional native DCC build is not present"
+    },
+    {
+      "test": "test_dcc_patch.NativeCompletionTests.test_idle_channels_and_empty_trace_are_safe",
+      "reason": "optional native DCC build is not present"
+    },
+    {
+      "test": "test_dcc_patch.NativeCompletionTests.test_missing_completion_assumption_is_rejected",
+      "reason": "optional native DCC build is not present"
+    },
+    {
+      "test": "test_dcc_patch.NativeCompletionTests.test_pim_writeback_tail_obeys_explicit_model",
+      "reason": "optional native DCC build is not present"
+    },
+    {
+      "test": "test_dcc_patch.NativeCompletionTests.test_refresh_completion_is_drained_using_source_nRFC",
+      "reason": "optional native DCC build is not present"
+    },
+    {
+      "test": "test_dcc_patch.NativeCompletionTests.test_write_recovery_tail_obeys_source_timing",
+      "reason": "optional native DCC build is not present"
+    },
+    {
+      "test": "test_native_hbm.NativeIntegrationTests.test_real_asan_banked_trace",
+      "reason": "explicit optional native integration"
+    },
+    {
+      "test": "test_tensor_platform.TensorPlatformTests.test_native_hbm_batched_actual_tensors",
+      "reason": "native HBM opt-in"
+    },
+    {
+      "test": "test_tensor_platform.TensorPlatformTests.test_native_sram_batched_actual_tensors",
+      "reason": "native SRAM opt-in"
+    },
+    {
+      "test": "test_upstream_audit.RecordedUpstreamDefectTests.test_recorded_alignment_defect_exceeds_resources_for_search_results",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_upstream_audit.RecordedUpstreamDefectTests.test_recorded_argument_order_defect_swaps_declared_operand_bases",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_upstream_audit.RecordedUpstreamDefectTests.test_recorded_capacity_defect_continues_when_one_matrix_cannot_fit",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_upstream_audit.RecordedUpstreamDefectTests.test_recorded_iteration_defect_ignores_external_iteration_argument",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_upstream_audit.RecordedUpstreamDefectTests.test_recorded_multihead_defect_writes_same_output_address",
+      "reason": "optional author DCC generator sources are not installed"
+    },
+    {
+      "test": "test_upstream_audit.RecordedUpstreamDefectTests.test_recorded_reduction_defect_above_128_omits_later_chunks",
+      "reason": "optional author DCC generator sources are not installed"
+    }
+  ],
+  "unexpected_skips": [],
+  "complete_discovery": true,
+  "passed": true,
+  "evidence_scope": "software regression tests; not hardware or full-paper validation"
+}

@@ -1,0 +1,216 @@
+{
+  "schema": "pim-foundry.public-historical-evidence.v1",
+  "scope": "Selected observations from private local acceptance before the initial public release; raw third-party assets and sealed bundles are not redistributed.",
+  "independent_attestation": false,
+  "original_release_report_sha256": "a2da1d52060518cd36f08356781e3fa5d2873afa6fd3372658d6697217993da8",
+  "local_tests": {
+    "count": 518,
+    "skips": 0,
+    "native_runtimes_enabled": true
+  },
+  "sealed_application_bundle_count": 19,
+  "source_module_sha256": {
+    "pim_foundry/__init__.py": "260fa6078e4621857a16abb8d805a60eed63cf753966850a35e11e07f534dde7",
+    "pim_foundry/__main__.py": "8693ac292c8a9c14124745984fc29f97159656a7bba1e5159eb1aae3afa278a3",
+    "pim_foundry/application.py": "75dd17c70e7b2d6b95d3ae5e11794fcbf453ac0b423160bbdd3e7c912156df8c",
+    "pim_foundry/backend.py": "8f1f7680ef61a3e6c326eae51e7f5e822ff44f88f59d0d9ac897d0636b1ac3bb",
+    "pim_foundry/banked.py": "020ae4b47d96b744e46df84ed27fa85c87bdd940e4e99de6d5408b9a578cd7c4",
+    "pim_foundry/benchmark.py": "a73f69e8949d5bf629a38cb7d6796c04722284ef1f98b50322820606bd927167",
+    "pim_foundry/calibration.py": "ef3c7ec428bed105629ccd503df354931f8611fce656cf6829fc894a56e2553e",
+    "pim_foundry/cimflow.py": "e9560cea8ae709bb2c8075a6610acc5b92c2effc7c05834139bdf98290ffb32e",
+    "pim_foundry/cimflow_application.py": "eaa9c5484acafdb6483abd5dfbeaef1d84a8bc47d99184758b46f7c9b35ea956",
+    "pim_foundry/comparison.py": "2d4bde20aea3bc94eb9b59cb62eb179609960b54fc9288905238e7ab8c38e30d",
+    "pim_foundry/config.py": "f881f403e1b38adf6133494a21048e7d335c72763b8b2a951b5630f515a8fcd9",
+    "pim_foundry/core.py": "a7299c0925d42d3dadf017698f8c2506860be678a1483d3809699adb295c78f2",
+    "pim_foundry/dcc_simulator.py": "444b38b1b3952a9d738c6b8daa6a99682c6fe41efe90c02dbba36a747f1d76ad",
+    "pim_foundry/experiments.py": "c50ba6185ef9a776009dd9526396c2a48dce0f225afd977591cdd0b98879805b",
+    "pim_foundry/model.py": "f945b1d0a6215ce51417fc3ea25d2b89f76998db1d42bc4ba8bd02bf0d428a25",
+    "pim_foundry/native_hbm.py": "f3c924194f778050f1a7a6e2f76bf3c9e9e361038f7f1187ec835bc9d484eb2e",
+    "pim_foundry/neupims_adapter.py": "83d81ad9d7576d51c203d3b26f046eec6f0c28e3d000117462bd66fe6eb08215",
+    "pim_foundry/onnx_frontend.py": "4d8b1af764538b09c7268d7a7ccba8ce5a584b844cfa46937221814e467002be",
+    "pim_foundry/pimbench_adapter.py": "b45c97f789baa2722f85eec72a9c721cf02fc281e19886e5130481a74e628fb0",
+    "pim_foundry/reference.py": "30fb2732ad8b5518cbf25dbfbf0b310aeed5c1e08bc9e669f74b41f69e893ef3",
+    "pim_foundry/reporting.py": "c5a61163b78f52d5fba32af1bc9178546fe51f84d15bde3b80c5f0357a813643",
+    "pim_foundry/research.py": "bbdd627e117f3b6f6413b2834695e37fd501df1b257e425a5d70010e382419fc",
+    "pim_foundry/simulation.py": "00dac80947107a7ff8c1e8a7b7ea50e459fc94c38d88487bdd8f280201006218",
+    "pim_foundry/starc_adapter.py": "905900919ddb12105fadbe4648d0d506b1c9cbad2cae9ffa25031f06cf86b145",
+    "pim_foundry/tensor_application.py": "421735787750ba2ea2849321dd05553bb0cfe0c10fc11406b68315646e2ea2f4",
+    "pim_foundry/tensor_executor.py": "8fda2ae8c7ea36d2f74143d189845c98b143296813bfe8ac8298a38f2e20c591",
+    "pim_foundry/tensor_ir.py": "bd476efda5cb03979a93cf10205b0ed1583d639993e9a08f780e77de0d5cd1e4",
+    "pim_foundry/tensor_onnx.py": "131da471557c88485411590a7ae5d14e4905f47002ee7192914cf5ca4a86f40e",
+    "pim_foundry/tensor_platform.py": "a8db640a4a6e67bcf7bfd7466e4a487e5bbb73ef8eb30954015a610681ce1d29",
+    "pim_foundry/trace.py": "f7ec4369daacc4b9bf6045ce67412f4a84f08dbace38c523b648f767e4cfb8c7",
+    "pim_foundry/transformer_application.py": "959990f96e6297fefc41b6edbf76fc7f121f293c2d88528b5cc835856dd7285f",
+    "pim_foundry/typed.py": "3814a0ef9b400c8210c8f94b41f52b1c3a61add535d06a5f0b40ec42fe549361",
+    "pim_foundry/unified.py": "9a72851da8e1b5f12451496e6ed6023da709d112d617d78d04fd8f81548f14dc",
+    "pim_foundry/unified_examples.py": "b6a675a691f0c627c7467233bf58985a39e28e4952a15eefa88d03eb594f7537",
+    "pim_foundry/worker.py": "c1d0b10068199ba7d85f4ba6c8e4453adc9a599e93951d8d513a13c7ebd82941",
+    "pim_foundry/workloads.py": "18d7573b24a97dafdc322c2f2ccc1a15ef1069244f37d0811dea351518d5ac6b"
+  },
+  "distilgpt2": {
+    "quality": {
+      "numerical": {
+        "status": "passed",
+        "checks": {
+          "generation_logits": {
+            "passed": true,
+            "max_abs_error": 8.392333984375e-05
+          },
+          "evaluation_logits": {
+            "passed": true,
+            "max_abs_error": 0.00020599365234375
+          },
+          "greedy_tokens": {
+            "passed": true
+          },
+          "full_recompute_logits": {
+            "passed": true,
+            "max_abs_error": 9.918212890625e-05
+          },
+          "cache_0_k": {
+            "passed": true,
+            "max_abs_error": 2.86102294921875e-06
+          },
+          "cache_0_v": {
+            "passed": true,
+            "max_abs_error": 5.960464477539062e-07
+          },
+          "cache_1_k": {
+            "passed": true,
+            "max_abs_error": 3.814697265625e-06
+          },
+          "cache_1_v": {
+            "passed": true,
+            "max_abs_error": 1.8477439880371094e-06
+          },
+          "cache_2_k": {
+            "passed": true,
+            "max_abs_error": 1.239776611328125e-05
+          },
+          "cache_2_v": {
+            "passed": true,
+            "max_abs_error": 2.3096799850463867e-06
+          },
+          "cache_3_k": {
+            "passed": true,
+            "max_abs_error": 7.62939453125e-06
+          },
+          "cache_3_v": {
+            "passed": true,
+            "max_abs_error": 3.5762786865234375e-06
+          },
+          "cache_4_k": {
+            "passed": true,
+            "max_abs_error": 5.4836273193359375e-06
+          },
+          "cache_4_v": {
+            "passed": true,
+            "max_abs_error": 3.337860107421875e-06
+          },
+          "cache_5_k": {
+            "passed": true,
+            "max_abs_error": 3.814697265625e-06
+          },
+          "cache_5_v": {
+            "passed": true,
+            "max_abs_error": 6.198883056640625e-06
+          }
+        }
+      },
+      "task": {
+        "status": "passed",
+        "metric": "next_token_nll",
+        "value": 4.598927796174931,
+        "reference": 4.5989287803437655,
+        "absolute_delta": 9.841688344280897e-07,
+        "scope": "quality preservation on fixed fixture; no general model-quality claim"
+      }
+    },
+    "metrics": {
+      "next_token_nll": {
+        "value": 4.598927796174931,
+        "unit": "nats/token",
+        "scope": "declared_dataset_fixture",
+        "aggregation": "mean",
+        "origin": "executed_complete_transformer_tensor_graph"
+      },
+      "perplexity": {
+        "value": 99.37770534236711,
+        "unit": "ratio",
+        "scope": "declared_dataset_fixture",
+        "aggregation": "exp_mean_nll",
+        "origin": "executed_complete_transformer_tensor_graph"
+      },
+      "scored_tokens": {
+        "value": 128,
+        "unit": "token",
+        "scope": "declared_dataset_fixture",
+        "aggregation": "total",
+        "origin": "executed_complete_transformer_tensor_graph"
+      },
+      "generated_tokens": {
+        "value": 8,
+        "unit": "token",
+        "scope": "greedy_generation",
+        "aggregation": "total",
+        "origin": "executed_complete_transformer_tensor_graph"
+      }
+    }
+  },
+  "tiny_gpt2_native": {
+    "quality": {
+      "numerical": {
+        "status": "passed",
+        "checks": {
+          "generation_logits": {
+            "passed": true,
+            "max_abs_error": 6.705522537231445e-08
+          },
+          "evaluation_logits": {
+            "passed": true,
+            "max_abs_error": 3.814697265625e-06
+          },
+          "greedy_tokens": {
+            "passed": true
+          },
+          "full_recompute_logits": {
+            "passed": true,
+            "max_abs_error": 6.705522537231445e-08
+          },
+          "cache_0_k": {
+            "passed": true,
+            "max_abs_error": 4.012603312730789e-06
+          },
+          "cache_0_v": {
+            "passed": true,
+            "max_abs_error": 2.082809805870056e-05
+          },
+          "cache_1_k": {
+            "passed": true,
+            "max_abs_error": 1.173652708530426e-05
+          },
+          "cache_1_v": {
+            "passed": true,
+            "max_abs_error": 5.552545189857483e-06
+          }
+        }
+      },
+      "task": {
+        "status": "passed",
+        "metric": "next_token_nll",
+        "value": 10.826947188138487,
+        "reference": 10.826947282950949,
+        "absolute_delta": 9.48124618815882e-08,
+        "scope": "quality preservation on fixed fixture; no general model-quality claim"
+      }
+    },
+    "scored_tokens": 16,
+    "scope": "functional fixture only; not a language-quality benchmark"
+  },
+  "native_comparison": {
+    "qualified": true,
+    "ratio": 1.0140294808258719,
+    "meaning": "mixed HBM versus all-GPU analytical mapping under fixed assumptions; not hardware speedup",
+    "hardware_performance_comparison_eligible": false
+  }
+}

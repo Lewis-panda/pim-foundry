@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="736" viewBox="0 0 1280 736" role="img" aria-labelledby="title description">
+  <title id="title">PIM Foundry: one application, many memory architectures</title>
+  <desc id="description">Keep an application's model, inputs, state, and quality policy fixed. Import ONNX, a tensor graph, or GPT-2 into shared tensor execution. Vary the platform and placement across SRAM-CIM and HBM-PIM native simulator integrations and GPU or NPU analytical models. Actual tensor outputs are checked against independent references. Timing and resource models remain distinct from arithmetic. Reports preserve assumptions, checks, and replayable comparisons. Simulator integration does not establish physical hardware performance.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101f35"/>
+      <stop offset="1" stop-color="#091321"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#59e2cc"/>
+      <stop offset="1" stop-color="#8eb5ff"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#88a6bc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+      .title { fill: #f4f8fe; font-size: 46px; font-weight: 750; letter-spacing: -1.5px; }
+      .tagline { fill: #e3ecf8; font-size: 28px; font-weight: 500; letter-spacing: -.4px; }
+      .intro { fill: #a8bed2; font-size: 17px; }
+      .eyebrow { fill: #67e3cd; font-size: 13px; font-weight: 700; letter-spacing: 1.7px; }
+      .heading { fill: #eef5ff; font-size: 23px; font-weight: 650; letter-spacing: -.35px; }
+      .body { fill: #c0d1e3; font-size: 17px; }
+      .secondary { fill: #a2b8cc; font-size: 16px; }
+      .chip { fill: #d9e7f5; font-size: 15px; font-weight: 600; }
+      .backend { fill: #e9f5ff; font-size: 21px; font-weight: 650; }
+      .small { fill: #9fb5c9; font-size: 14px; }
+      .step { fill: #e5f1ff; font-size: 18px; font-weight: 650; }
+      .note { fill: #a8bed2; font-size: 15px; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="736" rx="24" fill="url(#background)"/>
+  <rect x="48" y="39" width="7" height="42" rx="3.5" fill="url(#accent)"/>
+  <text x="72" y="76" class="title">PIM Foundry</text>
+  <rect x="986" y="44" width="246" height="30" rx="15" fill="#183249" stroke="#31516a"/>
+  <text x="1109" y="64" text-anchor="middle" fill="#b9d0e4" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.3">OPEN RESEARCH FRAMEWORK</text>
+  <text x="48" y="126" class="tagline">One application. Many memory architectures.</text>
+  <text x="48" y="159" class="intro">Change the architecture. Keep the workload and the evidence traceable.</text>
+
+  <!-- Application identity stays distinct from the experiment configuration. -->
+  <rect x="48" y="198" width="282" height="286" rx="16" fill="#14273d" stroke="#2d465e"/>
+  <text x="70" y="229" class="eyebrow">01 / KEEP FIXED</text>
+  <text x="70" y="264" class="heading">Your application</text>
+  <rect x="70" y="284" width="69" height="30" rx="7" fill="#223b53"/>
+  <text x="104.5" y="305" text-anchor="middle" class="chip">ONNX</text>
+  <rect x="146" y="284" width="96" height="30" rx="7" fill="#223b53"/>
+  <text x="194" y="305" text-anchor="middle" class="chip">Tensor graph</text>
+  <rect x="249" y="284" width="61" height="30" rx="7" fill="#223b53"/>
+  <text x="279.5" y="305" text-anchor="middle" class="chip">GPT-2</text>
+  <line x1="70" y1="335" x2="308" y2="335" stroke="#2b435b"/>
+  <circle cx="75" cy="359" r="3" fill="#59e2cc"/>
+  <text x="88" y="365" class="body">Model, inputs, and state</text>
+  <circle cx="75" cy="392" r="3" fill="#59e2cc"/>
+  <text x="88" y="398" class="body">Scenario and quality policy</text>
+  <circle cx="75" cy="425" r="3" fill="#59e2cc"/>
+  <text x="88" y="431" class="body">Independent references</text>
+  <text x="70" y="463" class="small">Content-bound application identity</text>
+
+  <path d="M 338 340 H 358" fill="none" stroke="#88a6bc" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Arithmetic produces tensors; timing is accounted for independently. -->
+  <rect x="366" y="198" width="282" height="286" rx="16" fill="#14273d" stroke="#2d465e"/>
+  <text x="388" y="229" class="eyebrow">02 / EXECUTE</text>
+  <text x="388" y="264" class="heading">Shared tensor graph</text>
+  <text x="388" y="302" class="secondary">Shapes · precision · explicit state</text>
+  <line x1="388" y1="323" x2="626" y2="323" stroke="#2b435b"/>
+  <rect x="388" y="342" width="238" height="48" rx="9" fill="#173d43" stroke="#2a6468"/>
+  <text x="507" y="372" text-anchor="middle" fill="#80ecd9" font-size="18" font-weight="650">Actual tensor execution</text>
+  <text x="388" y="419" class="body">Check backend capabilities</text>
+  <text x="388" y="446" class="body">Schedule compute and transfers</text>
+  <text x="388" y="472" class="small">Track dependencies and capacity</text>
+
+  <path d="M 656 340 H 676" fill="none" stroke="#88a6bc" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Native means integration with a simulator, not execution on a device. -->
+  <rect x="684" y="198" width="548" height="286" rx="16" fill="#14273d" stroke="#2d465e"/>
+  <text x="706" y="229" class="eyebrow">03 / VARY</text>
+  <text x="706" y="264" class="heading">Platform + placement</text>
+  <text x="706" y="295" class="secondary">Choose devices, links, mapping, and model assumptions.</text>
+  <rect x="706" y="318" width="155" height="123" rx="10" fill="#193642" stroke="#356068"/>
+  <text x="722" y="350" class="backend">SRAM-CIM</text>
+  <text x="722" y="378" fill="#71e2ce" font-size="14" font-weight="600">Native integration</text>
+  <text x="722" y="403" class="small">INT8 / INT32</text>
+  <text x="722" y="424" class="small">CIMFlow timing</text>
+  <rect x="873" y="318" width="155" height="123" rx="10" fill="#193642" stroke="#356068"/>
+  <text x="889" y="350" class="backend">HBM-PIM</text>
+  <text x="889" y="378" fill="#71e2ce" font-size="14" font-weight="600">Native integration</text>
+  <text x="889" y="403" class="small">FP16 arithmetic</text>
+  <text x="889" y="424" class="small">DCC timing projection</text>
+  <rect x="1040" y="318" width="170" height="123" rx="10" fill="#352c3a" stroke="#665060"/>
+  <text x="1056" y="350" class="backend">GPU / NPU</text>
+  <text x="1056" y="378" fill="#f6b89c" font-size="14" font-weight="600">Analytical models</text>
+  <text x="1056" y="403" class="small">CPU tensor execution</text>
+  <text x="1056" y="424" class="small">Declared cost models</text>
+  <text x="706" y="466" class="small">Native paths pair instruction interpretation with external timing.</text>
+
+  <text x="48" y="525" class="eyebrow">FROM EXECUTION TO CHECKABLE EVIDENCE</text>
+  <rect x="48" y="547" width="1184" height="117" rx="16" fill="#102536" stroke="#2b485d"/>
+  <line x1="349" y1="571" x2="349" y2="640" stroke="#2b485d"/>
+  <line x1="650" y1="571" x2="650" y2="640" stroke="#2b485d"/>
+  <line x1="951" y1="571" x2="951" y2="640" stroke="#2b485d"/>
+  <circle cx="80" cy="580" r="5" fill="#62e3cb"/>
+  <text x="96" y="586" class="step">Actual tensor outputs</text>
+  <text x="72" y="615" class="secondary">Arrays pass from one operation</text>
+  <text x="72" y="638" class="secondary">to the next, including state.</text>
+  <path d="M 324 585 H 338" fill="none" stroke="#88a6bc" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <circle cx="381" cy="580" r="5" fill="#62e3cb"/>
+  <text x="397" y="586" class="step">Independent checks</text>
+  <text x="373" y="615" class="secondary">Reference outputs and scoped</text>
+  <text x="373" y="638" class="secondary">task quality remain visible.</text>
+  <path d="M 625 585 H 639" fill="none" stroke="#88a6bc" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <circle cx="682" cy="580" r="5" fill="#f6b89c"/>
+  <text x="698" y="586" class="step">Separate cost evidence</text>
+  <text x="674" y="615" class="secondary">Timing, transfers, contention,</text>
+  <text x="674" y="638" class="secondary">and memory assumptions.</text>
+  <path d="M 926 585 H 940" fill="none" stroke="#88a6bc" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <circle cx="983" cy="580" r="5" fill="#8eb5ff"/>
+  <text x="999" y="586" class="step">Reports + replay</text>
+  <text x="975" y="615" class="secondary">Compare under an explicit</text>
+  <text x="975" y="638" class="secondary">workload and resource policy.</text>
+
+  <text x="48" y="704" class="note">SIMULATOR INTEGRATION ≠ PHYSICAL HARDWARE VALIDATION</text>
+  <text x="1232" y="704" text-anchor="end" class="note">Open code. Explicit assumptions. Reproducible experiments.</text>
+</svg>

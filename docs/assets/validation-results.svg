@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1152pt" height="604.8pt" viewBox="0 0 1152 604.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:description>PIM Foundry validation: sources validation/public-onnx.json and validation/local-v0.8.json; policy docs/transformer-application.md. 493 passed, 25 optional skips, 518 discovered. Historical DistilGPT2 fixture: 8/8 greedy tokens, 12/12 K/V tensors, 128 scored targets. Functional and numerical evidence only, not measured hardware speedup. Historical raw bundles are not distributed; no independent attestation.</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>PIM Foundry</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 604.8 
+L 1152 604.8 
+L 1152 0 
+L 0 0 
+z
+" style="fill: #f4f7fb"/>
+  </g>
+  <g id="patch_2">
+   <path d="M 58.752 492.912 
+L 367.488 492.912 
+Q 385.92 492.912 385.92 483.2352 
+L 385.92 145.7568 
+Q 385.92 136.08 367.488 136.08 
+L 58.752 136.08 
+Q 40.32 136.08 40.32 145.7568 
+L 40.32 483.2352 
+Q 40.32 492.912 58.752 492.912 
+z
+" style="fill: #ffffff; stroke: #dfe7ee; stroke-width: 0.8; stroke-linejoin: miter"/>
+  </g>
+  <g id="patch_3">
+   <path d="M 427.392 492.912 
+L 1093.248 492.912 
+Q 1111.68 492.912 1111.68 483.2352 
+L 1111.68 145.7568 
+Q 1111.68 136.08 1093.248 136.08 
+L 427.392 136.08 
+Q 408.96 136.08 408.96 145.7568 
+L 408.96 483.2352 
+Q 408.96 492.912 427.392 492.912 
+z
+" style="fill: #ffffff; stroke: #dfe7ee; stroke-width: 0.8; stroke-linejoin: miter"/>
+  </g>
+  <g id="patch_4">
+   <path d="M 65.664 297.5616 
+L 359.424 297.5616 
+L 359.424 283.0464 
+L 65.664 283.0464 
+z
+" style="fill: #e9eff4"/>
+  </g>
+  <g id="patch_5">
+   <path d="M 65.664 297.5616 
+L 345.246394 297.5616 
+L 345.246394 283.0464 
+L 65.664 283.0464 
+z
+" style="fill: #087f8c"/>
+  </g>
+  <g id="patch_6">
+   <path d="M 345.246394 297.5616 
+L 359.424 297.5616 
+L 359.424 283.0464 
+L 345.246394 283.0464 
+z
+" style="fill: #e7b75f"/>
+  </g>
+  <g id="patch_7">
+   <path d="M 65.664 327.8016 
+L 76.032 327.8016 
+L 76.032 317.52 
+L 65.664 317.52 
+z
+" style="fill: #e7b75f"/>
+  </g>
+  <g id="patch_8">
+   <path d="M 65.664 381.6288 
+L 359.424 381.6288 
+L 359.424 380.90304 
+L 65.664 380.90304 
+z
+" style="fill: #dfe7ee"/>
+  </g>
+  <g id="patch_9">
+   <path d="M 435.456 252.8064 
+L 1085.184 252.8064 
+L 1085.184 252.08064 
+L 435.456 252.08064 
+z
+" style="fill: #dfe7ee"/>
+  </g>
+  <g id="patch_10">
+   <path d="M 435.456 316.9152 
+L 1085.184 316.9152 
+L 1085.184 306.0288 
+L 435.456 306.0288 
+z
+" style="fill: #e9eff4"/>
+  </g>
+  <g id="patch_11">
+   <path d="M 435.456 316.9152 
+L 881.588813 316.9152 
+L 881.588813 306.0288 
+L 435.456 306.0288 
+z
+" style="fill: #087f8c"/>
+  </g>
+  <g id="patch_12">
+   <path d="M 1084.032 320.544 
+L 1085.76 320.544 
+L 1085.76 301.7952 
+L 1084.032 301.7952 
+z
+" style="fill: #152a43"/>
+  </g>
+  <g id="patch_13">
+   <path d="M 435.456 383.4432 
+L 1085.184 383.4432 
+L 1085.184 372.5568 
+L 435.456 372.5568 
+z
+" style="fill: #e9eff4"/>
+  </g>
+  <g id="patch_14">
+   <path d="M 435.456 383.4432 
+L 441.85042 383.4432 
+L 441.85042 372.5568 
+L 435.456 372.5568 
+z
+" style="fill: #087f8c"/>
+  </g>
+  <g id="patch_15">
+   <path d="M 1084.032 387.072 
+L 1085.76 387.072 
+L 1085.76 368.3232 
+L 1084.032 368.3232 
+z
+" style="fill: #152a43"/>
+  </g>
+  <g id="text_1">
+   <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #087f8c" x="40.32" y="34.4736" transform="rotate(-0 40.32 34.4736)">PIM FOUNDRY  /  VALIDATION</text>
+  </g>
+  <g id="text_2">
+   <text style="font-weight: 700; font-size: 32px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #152a43" x="40.32" y="80.4384" transform="rotate(-0 40.32 80.4384)">Evidence you can inspect.</text>
+  </g>
+  <g id="text_3">
+   <text style="font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52667b" x="40.32" y="111.2832" transform="rotate(-0 40.32 111.2832)">Software regression and pretrained numerical agreement, with explicit evaluation scope.</text>
+  </g>
+  <g id="text_4">
+   <text style="font-weight: 700; font-size: 18px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #152a43" x="65.664" y="165.7152" transform="rotate(-0 65.664 165.7152)">Public regression suite</text>
+  </g>
+  <g id="text_5">
+   <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52667b" x="65.664" y="188.6976" transform="rotate(-0 65.664 188.6976)">Clean checkout · ONNX profile</text>
+  </g>
+  <g id="text_6">
+   <text style="font-weight: 700; font-size: 56px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #087f8c" x="65.664" y="259.4592" transform="rotate(-0 65.664 259.4592)">493</text>
+  </g>
+  <g id="text_7">
+   <text style="font-size: 20px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #087f8c" x="207.36" y="250.3872" transform="rotate(-0 207.36 250.3872)">passed</text>
+  </g>
+  <g id="text_8">
+   <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52667b" x="85.248" y="327.8016" transform="rotate(-0 85.248 327.8016)">25 optional tests skipped</text>
+  </g>
+  <g id="text_9">
+   <text style="font-weight: 700; font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #152a43" x="65.664" y="355.6224" transform="rotate(-0 65.664 355.6224)">0 failures · 0 errors</text>
+  </g>
+  <g id="text_10">
+   <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52667b" x="65.664" y="408.24" transform="rotate(-0 65.664 408.24)">518 tests discovered · Python 3.12</text>
+  </g>
+  <g id="text_11">
+   <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52667b" x="65.664" y="440.2944" transform="rotate(-0 65.664 440.2944)">Skipped checks require separate</text>
+  </g>
+  <g id="text_12">
+   <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52667b" x="65.664" y="460.2528" transform="rotate(-0 65.664 460.2528)">author sources or native runtimes.</text>
+  </g>
+  <g id="text_13">
+   <text style="font-weight: 700; font-size: 18px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #152a43" x="435.456" y="165.7152" transform="rotate(-0 435.456 165.7152)">DistilGPT2 reference agreement</text>
+  </g>
+  <g id="text_14">
+   <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52667b" x="435.456" y="188.6976" transform="rotate(-0 435.456 188.6976)">Historical local run · CPU float32 · fixed WikiText fixture</text>
+  </g>
+  <g id="text_15">
+   <text style="font-weight: 700; font-size: 29px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #087f8c" x="435.456" y="230.4288" transform="rotate(-0 435.456 230.4288)">8/8</text>
+  </g>
+  <g id="text_16">
+   <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #152a43" x="506.88" y="225.5904" transform="rotate(-0 506.88 225.5904)">greedy token IDs match</text>
+  </g>
+  <g id="text_17">
+   <text style="font-weight: 700; font-size: 29px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #087f8c" x="763.776" y="230.4288" transform="rotate(-0 763.776 230.4288)">12/12</text>
+  </g>
+  <g id="text_18">
+   <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #152a43" x="872.064" y="225.5904" transform="rotate(-0 872.064 225.5904)">K/V tensors pass</text>
+  </g>
+  <g id="text_19">
+   <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #152a43" x="435.456" y="290.304" transform="rotate(-0 435.456 290.304)">Max evaluation logit |Δ|</text>
+  </g>
+  <g id="text_20">
+   <text style="font-weight: 700; font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #087f8c" x="690.048" y="290.304" transform="rotate(-0 690.048 290.304)">2.06e-04</text>
+  </g>
+  <g id="text_21">
+   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52667b" x="1085.184" y="290.304" transform="rotate(-0 1085.184 290.304)">absolute tolerance 3e−4</text>
+  </g>
+  <g id="text_22">
+   <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #152a43" x="435.456" y="356.832" transform="rotate(-0 435.456 356.832)">Mean next-token NLL |Δ|</text>
+  </g>
+  <g id="text_23">
+   <text style="font-weight: 700; font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #087f8c" x="690.048" y="356.832" transform="rotate(-0 690.048 356.832)">9.84e-07</text>
+  </g>
+  <g id="text_24">
+   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52667b" x="1085.184" y="356.832" transform="rotate(-0 1085.184 356.832)">limit 1e−4 nats/token</text>
+  </g>
+  <g id="text_25">
+   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52667b" x="435.456" y="420.9408" transform="rotate(-0 435.456 420.9408)">Bars show observed error relative to the marked bound.</text>
+  </g>
+  <g id="text_26">
+   <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52667b" x="435.456" y="443.9232" transform="rotate(-0 435.456 443.9232)">128 scored targets · logits use atol = rtol = 3e−4</text>
+  </g>
+  <g id="text_27">
+   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52667b" x="435.456" y="466.3008" transform="rotate(-0 435.456 466.3008)">Quality preservation on this fixture; no general model-quality claim.</text>
+  </g>
+  <g id="text_28">
+   <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #152a43" x="40.32" y="527.3856" transform="rotate(-0 40.32 527.3856)">Scope: functional correctness and numerical agreement; no measured hardware speedup.</text>
+  </g>
+  <g id="text_29">
+   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52667b" x="40.32" y="552.1824" transform="rotate(-0 40.32 552.1824)">Sources: validation/public-onnx.json · validation/local-v0.8.json</text>
+  </g>
+  <g id="text_30">
+   <text style="font-size: 10.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52667b" x="40.32" y="573.3504" transform="rotate(-0 40.32 573.3504)">Policy: docs/transformer-application.md · Historical raw bundles are not distributed; no independent attestation.</text>
+  </g>
+ </g>
+</svg>

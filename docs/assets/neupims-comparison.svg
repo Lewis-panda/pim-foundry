@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1152pt" height="446.4pt" viewBox="0 0 1152 446.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:description>Source: docs/neupims-validation.md. Historical local controlled NeuPIMs ablation: regenerated RR 650229 ns, author CLB 619233 ns, 4.7669% lower modeled latency. Same ordered 512 requests and platform; one layer, one decode token, includes simulator drain. Zero-based latency axis. Raw historical run bundles are not distributed. Task quality and physical hardware performance are unvalidated.</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>PIM Foundry</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 446.4 
+L 1152 446.4 
+L 1152 0 
+L 0 0 
+z
+" style="fill: #f4f7fb"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 236.16 285.696 
+L 858.24 285.696 
+L 858.24 151.776 
+L 236.16 151.776 
+z
+" style="fill: #f4f7fb"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 236.16 285.696 
+L 236.16 151.776 
+" clip-path="url(#pb53d4ec65b)" style="fill: none; stroke: #dfe7ee; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2"/>
+     <g id="text_1">
+      <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52667b" x="236.16" y="305.573969" transform="rotate(-0 236.16 305.573969)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 402.048 285.696 
+L 402.048 151.776 
+" clip-path="url(#pb53d4ec65b)" style="fill: none; stroke: #dfe7ee; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4"/>
+     <g id="text_2">
+      <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52667b" x="402.048" y="305.573969" transform="rotate(-0 402.048 305.573969)">200</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 567.936 285.696 
+L 567.936 151.776 
+" clip-path="url(#pb53d4ec65b)" style="fill: none; stroke: #dfe7ee; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6"/>
+     <g id="text_3">
+      <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52667b" x="567.936" y="305.573969" transform="rotate(-0 567.936 305.573969)">400</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 733.824 285.696 
+L 733.824 151.776 
+" clip-path="url(#pb53d4ec65b)" style="fill: none; stroke: #dfe7ee; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8"/>
+     <g id="text_4">
+      <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52667b" x="733.824" y="305.573969" transform="rotate(-0 733.824 305.573969)">600</text>
+     </g>
+    </g>
+    <g id="text_5">
+     <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52667b" x="547.2" y="331.155531" transform="rotate(-0 547.2 331.155531)">Modeled batch latency (µs; lower is better)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_9"/>
+     <g id="text_6">
+      <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52667b" x="226.16" y="195.774984" transform="rotate(-0 226.16 195.774984)">Regenerated RR</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_10"/>
+     <g id="text_7">
+      <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52667b" x="226.16" y="251.574984" transform="rotate(-0 226.16 251.574984)">Author CLB</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 236.16 285.696 
+L 858.24 285.696 
+" style="fill: none; stroke: #dfe7ee; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 236.16 203.67 
+L 775.485942 203.67 
+L 775.485942 178.002 
+L 236.16 178.002 
+z
+" clip-path="url(#pb53d4ec65b)" style="fill: #95a8ba"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 236.16 259.47 
+L 749.77662 259.47 
+L 749.77662 233.802 
+L 236.16 233.802 
+z
+" clip-path="url(#pb53d4ec65b)" style="fill: #087f8c"/>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #152a43" x="783.780342" y="194.975063" transform="rotate(-0 783.780342 194.975063)">650.229</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #152a43" x="758.07102" y="250.775063" transform="rotate(-0 758.07102 250.775063)">619.233</text>
+   </g>
+  </g>
+  <g id="patch_6">
+   <path d="M 934.272 293.7312 
+L 1093.248 293.7312 
+Q 1111.68 293.7312 1111.68 286.5888 
+L 1111.68 165.6144 
+Q 1111.68 158.472 1093.248 158.472 
+L 934.272 158.472 
+Q 915.84 158.472 915.84 165.6144 
+L 915.84 286.5888 
+Q 915.84 293.7312 934.272 293.7312 
+z
+" style="fill: #e3f2f2"/>
+  </g>
+  <g id="text_10">
+   <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #087f8c" x="40.32" y="33.0336" transform="rotate(-0 40.32 33.0336)">NEUPIMS  /  ASPLOS 2024 ARTIFACT</text>
+  </g>
+  <g id="text_11">
+   <text style="font-weight: 700; font-size: 29px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #152a43" x="40.32" y="79.0128" transform="rotate(-0 40.32 79.0128)">Change placement. Keep the workload fixed.</text>
+  </g>
+  <g id="text_12">
+   <text style="font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52667b" x="40.32" y="111.6" transform="rotate(-0 40.32 111.6)">Same 512 ordered requests and platform; only the channel assignment changes.</text>
+  </g>
+  <g id="text_13">
+   <text style="font-weight: 700; font-size: 33px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #087f8c" x="1013.76" y="205.344" transform="rotate(-0 1013.76 205.344)">4.77%</text>
+  </g>
+  <g id="text_14">
+   <text style="font-size: 12.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #152a43" x="1013.76" y="231.2352" transform="rotate(-0 1013.76 231.2352)">lower modeled latency</text>
+  </g>
+  <g id="text_15">
+   <text style="font-size: 11.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52667b" x="1013.76" y="265.1616" transform="rotate(-0 1013.76 265.1616)">CLB vs regenerated RR</text>
+  </g>
+  <g id="text_16">
+   <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #152a43" x="40.32" y="361.1376" transform="rotate(-0 40.32 361.1376)">Measurement boundary: one layer · one decode token · batch completion including simulator drain.</text>
+  </g>
+  <g id="text_17">
+   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52667b" x="40.32" y="390.6" transform="rotate(-0 40.32 390.6)">Source: docs/neupims-validation.md · Historical local simulator study; raw run bundles are not distributed.</text>
+  </g>
+  <g id="text_18">
+   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52667b" x="40.32" y="414.2592" transform="rotate(-0 40.32 414.2592)">Controlled ablation of the released artifact; task quality and physical hardware performance are unvalidated.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pb53d4ec65b">
+   <rect x="236.16" y="151.776" width="622.08" height="133.92"/>
+  </clipPath>
+ </defs>
+</svg>

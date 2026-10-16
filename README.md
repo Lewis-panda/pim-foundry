@@ -61,7 +61,7 @@ This is a scoped placement ablation from a historical local study. It measures s
 
 ## Published papers, concrete results
 
-Explore **IISWC, DAC, ASPLOS, and ISCA** research through pinned source revisions and explicit study boundaries. The studies below are documented development runs and audits; original upstream assets and historical raw bundles are not included in the public repository. The status applies to the listed experiment, rather than every claim in the paper.
+The experiments below executed artifacts from **IISWC, DAC, ASPLOS, and ISCA** papers at pinned source revisions. Each row reports the workload actually run, its observed result, and its limits. Original upstream assets and historical raw bundles are not included in the public repository.
 
 | Paper | What the study demonstrates | Status / scope |
 |---|---|---|
@@ -69,12 +69,9 @@ Explore **IISWC, DAC, ASPLOS, and ISCA** research through pinned source revision
 | **[NeuPIMs](https://arxiv.org/abs/2403.00579)** · ASPLOS 2024 | **512 matched requests**, three variants and three replays; direct/adapted timing counters agree. Controlled CLB/RR comparison shown above. | **Timing parity + replay.** One layer, one decode token; no tensor-level quality. [Evidence / rerun](docs/neupims-validation.md). |
 | **[STARC](https://doi.org/10.1145/3779212.3790226)** · ASPLOS 2026 | **508 native calls** across Full/STARC runs and replays. CSV/cache outputs match independent direct runs **byte for byte**. | **Parity within a 128-token window.** Separately identified safety repair; full long-generation sweep untested. [Evidence / rerun](docs/starc-application.md). |
 | **[CIMFlow](https://arxiv.org/abs/2505.01107)** · DAC 2025 | ResNet-18 DP agrees at **3.560054 ms** across direct/adapted/replay runs; other tested mappings expose timing drift despite identical ISA bytes. | **Reproducibility failure retained.** Backbone timing; no complete classifier-quality claim. [Evidence](docs/cimflow-application-validation.md). |
-| **[DCC](https://arxiv.org/abs/2511.15503)** · ISCA 2026 | Reproduced a controller use-after-free with AddressSanitizer; published a separately identified repair and explicit command-completion model. | **Runtime audit + patched integration.** Completion delay is an explicit assumption. [Audit](docs/dcc-runtime-audit.md) · [Patch](patches/dcc/README.md). |
-| **[IANUS](https://arxiv.org/abs/2410.15008v1)** · ASPLOS 2024 | **8 arithmetic checks** agree within displayed precision; **4 denominator checks** flag inconsistencies under stated assumptions. | **Paper audit only.** No authenticated author executable obtained. [Evidence](docs/ianus-validation.md). |
+| **[DCC](https://arxiv.org/abs/2511.15503)** · ISCA 2026 | **27 configurations**, 81 direct/adapter native executions; generated traces match byte for byte, and all 18 simulator statistics agree across execution paths. | **Integration parity.** The original runtime's confirmed use-after-free blocks performance comparisons; GEMV numerical correctness was not verified in this study. [Execution record / rerun](docs/paper-validation-dcc.md). |
 
-**Find problems that a passing reference can miss.** The PIMbench audit catches BMP metadata counted as image pixels and labels leaking into KNN distance, even though the original CPU reference accepts the outputs. Foundry records those outcomes separately from numerical agreement and excludes ineligible results from quality-preserving comparisons. [Read the counterexamples](docs/pimbench-validation.md#independent-failure-evidence).
-
-For source provenance, failure analysis, and the distinction between application execution, paper reproduction, and hardware calibration, see [Research evidence](docs/research-evidence.md). Paper names identify integrations and audits; they do not imply author endorsement.
+Source revisions, execution procedures, and known failures are documented in the linked records. These results cover the listed experiments; full-paper reproduction and hardware calibration require additional evidence. See [Research evidence](docs/research-evidence.md) for the detailed scope.
 
 ## Run your first experiment
 

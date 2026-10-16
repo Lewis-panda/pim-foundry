@@ -61,7 +61,7 @@ python examples/architecture_gallery.py --out runs/architecture-gallery
 
 ## 論文接入與具體成果
 
-從固定版本的作者程式，探索 **IISWC、DAC、ASPLOS、ISCA** 的研究。下表列出開發期間實際執行或審查的範圍；公開 repository 不附上游資產與歷史原始封存包。狀態對應表中的實驗範圍，不能直接延伸成整篇論文的全部結果。
+以下實驗實際執行了 **IISWC、DAC、ASPLOS、ISCA** 論文的固定版本程式。每列說明真正跑過的工作負載、觀察結果與限制；公開 repository 不附上游資產與歷史原始封存包。
 
 | 論文 | 已展示的具體結果 | 狀態／範圍 |
 |---|---|---|
@@ -69,12 +69,9 @@ python examples/architecture_gallery.py --out runs/architecture-gallery
 | **[NeuPIMs](https://arxiv.org/abs/2403.00579)** · ASPLOS 2024 | **512 個相同請求**、三種 variant 與三次重播；直接執行與 adapter 的時間計數器一致。上圖呈現受控 CLB／RR 比較。 | **時序一致性＋重播通過。** 單層、單 decode token；未執行張量品質評估。[證據／重跑](docs/neupims-validation.md)。 |
 | **[STARC](https://doi.org/10.1145/3779212.3790226)** · ASPLOS 2026 | Full／STARC 執行與重播共 **508 次原生呼叫**；CSV／cache 與獨立直接執行結果**逐 byte 相同**。 | **128-token 視窗內一致。** 安全修補獨立標記；未跑完整長生成 sweep。[證據／重跑](docs/starc-application.md)。 |
 | **[CIMFlow](https://arxiv.org/abs/2505.01107)** · DAC 2025 | ResNet-18 DP 的直接／adapter／重播同為 **3.560054 ms**；其他測試配置在 ISA bytes 相同時仍有時間差異。 | **保留重現失敗狀態。** Backbone 時序，沒有完整分類器品質主張。[證據](docs/cimflow-application-validation.md)。 |
-| **[DCC](https://arxiv.org/abs/2511.15503)** · ISCA 2026 | 用 AddressSanitizer 重現 controller use-after-free，發布獨立標記的修補與明示命令完成模型。 | **Runtime 審查＋修補版接入。** Completion delay 為明示假設。[審查](docs/dcc-runtime-audit.md) · [修補](patches/dcc/README.md)。 |
-| **[IANUS](https://arxiv.org/abs/2410.15008v1)** · ASPLOS 2024 | **8 項算術檢查**符合顯示精度；**4 項分母檢查**在列明假設下出現不一致。 | **僅論文審查。** 未取得可認證的作者執行 artifact。[證據](docs/ianus-validation.md)。 |
+| **[DCC](https://arxiv.org/abs/2511.15503)** · ISCA 2026 | **27 個配置**、81 次直接／adapter 原生執行；產生的 trace 逐 byte 相同，18 項模擬器統計在各執行路徑間全部一致。 | **接入一致性通過。** 原版 runtime 已確認的 use-after-free 使結果無法用於效能比較；此實驗未驗證 GEMV 數值正確性。[執行紀錄／重跑](docs/paper-validation-dcc.md)。 |
 
-**找出原始 reference 也會漏掉的問題。** PIMbench 的 CPU reference 接受了把 BMP metadata 當像素、把 label 納入 KNN 距離的結果。Foundry 的獨立檢查將這些結果與數值一致性分開記錄，並排除不符合品質條件的比較。[查看反例](docs/pimbench-validation.md#independent-failure-evidence)。
-
-來源、失敗分析與應用執行／論文復現／硬體校準的區分，見[研究證據](docs/research-evidence.md)。列出論文名稱表示接入或審查，不表示原作者背書。
+連結的紀錄包含來源版本、執行流程與已知失敗。這些結果涵蓋表中列出的實驗；整篇論文復現與硬體校準仍需額外證據。詳細範圍見[研究證據](docs/research-evidence.md)。
 
 ## 執行第一個實驗
 

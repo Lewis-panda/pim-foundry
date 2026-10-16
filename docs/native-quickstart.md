@@ -155,13 +155,13 @@ python3 scripts/build_dcc_patched.py \
   --upstream external/dcc-isca26 \
   --source external/dcc-foundry-patched \
   --dependencies external/dcc-dependencies \
-  --output runs/dcc-rebuild --pim-completion-cycles 8
+  --output runs/dcc-patched-final --pim-completion-cycles 8
 ```
 
 CIMFlow helper 可取得固定版本與 submodules；DCC helper 使用已取得並固定版本的
 upstream 與 dependency checkout，拒絕版本／來源不一致。DCC helper 會保留 patch、
-編譯和 sanitizer regression 證據。重新建置 DCC 後，把 `platform.json` 中 HBM 的
-`runtime_descriptor` 改成新的 `runs/dcc-rebuild/runtime.json` 絕對路徑。
+編譯和 sanitizer regression 證據。若改用其他 `--output` 目錄，把 `platform.json`
+中 HBM 的 `runtime_descriptor` 改成該建置所產生的 `runtime.json` 絕對路徑。
 
 SRAM 範例指向 `external/cimflow-simulator/build/cim-simulator`；HBM 範例指向
 `runs/dcc-patched-final/runtime.json`。範例中的外部 runtime 路徑以專案根目錄建立。
